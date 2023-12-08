@@ -8,6 +8,6 @@ namespace OBOS.Models
 {
     public class Book
     {
-        public float Price;
+        public float Price; // comments
     }
 }
