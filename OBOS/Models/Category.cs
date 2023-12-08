@@ -8,8 +8,8 @@ namespace OBOS.Models
 {
     public class Category
     {
-        private string Name { get; set; }
-        private DateTime CreationDate { get; set; }
+        public string Name { get; set; }
+        public DateTime CreationDate { get; set; }
 
         Order order;
         public Category()

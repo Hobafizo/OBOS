@@ -8,12 +8,12 @@ namespace OBOS.Models
 {
     public class Order
     {
-        private int Id { get; set; }
-        private User Customer { get; set; }
-        private List<KeyValuePair<Book, int>> Items { get; set; }
-        private int Quantity { get; set; }
-        private float TotalPrice { get; set; }
-        private DateTime Date { get; set; }
+        public int Id { get; set; }
+        public User Customer { get; set; }
+        public List<KeyValuePair<Book, int>> Items { get; set; }
+        public int Quantity { get; set; }
+        public float TotalPrice { get; set; }
+        public DateTime Date { get; set; }
 
         public float Total()
         {
