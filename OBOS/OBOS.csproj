@@ -69,6 +69,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Book.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\IPaymentStartegy.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Store.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -96,7 +102,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Media\" />
-    <Folder Include="Models\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Views\" />
   </ItemGroup>
