@@ -19,7 +19,8 @@ namespace OBOS.Models.Users
 			Controller = null;
 			CurrentUser = null;
 		}
-			Shop.GetInstance().Users.Add(user);
+       
+			//Users.Add(user);
 
 		public bool Login(string username, string pw)
 		{
@@ -27,40 +28,62 @@ namespace OBOS.Models.Users
 			{
 				if (CurrentUser.UserName == user.UserName)
 				{
-					CurrentUser = true;
+					CurrentUser = user;
+					return true;
 				}
-				else
-					return false;
 			}
+			return false;	
 		}
 
 		public bool Register(string username, string pw, string confirmpw, string address, string phone, bool isadmin = false)
 		{
+
+			foreach (var user1 in Shop.GetInstance().Users)
+			{
+				if (username == user1.UserName)
+				{
+					return false;
+
+				}
+			}
 			User user;
-			foreach (var user1 in Shop.GetInstance().Users)		
-            if (user.UserName != user1.UserName)
-            {
-                User.Id = IdCounter;
-                user.UserName = username;
-                user.Password = pw;
-                if (pw != confirmpw)
-                {
-                    return false;
-                }
-                user.Address = address;
-                user.Phone = phone;
-				IdCounter++;
-                return true;
-            }
-			else return false;
-        }
+			if (isadmin == true)
+			{
+				user = new Admin();
+			}
+			else
+				user = new Customer();
+
+			user.Id = User.IdCounter;
+			user.UserName = username;
+			user.Password = pw;
+			if (pw != confirmpw)
+			{
+				return false;
+			}
+			user.Address = address;
+			user.Phone = phone;
+			User.IdCounter++;
+			Shop.GetInstance().Users.Add(user);
+			CurrentUser = user;
+
+			return true;
+		}
+        
 
 		public bool Logout()
 		{
-			return false;
-		}
+			if (CurrentUser == null)
+			{
+				return false;
+			}
 
-		public static LoginController GetInstance()
+            CurrentUser = null;
+			return true;
+
+        }
+
+        public static LoginController GetInstance()
 		{
 			if (Controller == null)
 				Controller = new LoginController();
