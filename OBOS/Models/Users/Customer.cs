@@ -14,7 +14,7 @@ namespace OBOS.Models.Users
 
 		public int AddCart(Book book, int quantity)
 		{
-
+			return 0;
 		}
 
 		public void EditCart(int cartindex, int quantity)
