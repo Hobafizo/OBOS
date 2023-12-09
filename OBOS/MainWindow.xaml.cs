@@ -27,20 +27,14 @@ namespace OBOS
 
 		private void Window_MouseDown(object sender, MouseButtonEventArgs e)
 		{
-			if (Mouse.GetPosition(this).Y < 30)
+			if (e.GetPosition(this).Y <= 30)
 			{
-				this.Left = Mouse.GetPosition(this).Y;
-				this.Top = Mouse.GetPosition(this).X;
+				if (e.LeftButton == MouseButtonState.Pressed)
+				{
+					DragMove();
+				}
 			}
 		}
 
-		private void Window_DragEnter(object sender, DragEventArgs e)
-		{
-			if (Mouse.GetPosition(this).Y < 30)
-			{
-				this.Left = Mouse.GetPosition(this).X;
-				this.Top = Mouse.GetPosition(this).Y;
-			}
-		}
 	}
 }

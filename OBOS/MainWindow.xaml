@@ -4,21 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OBOS"
+        xmlns:views="clr-namespace:OBOS.Views"
         mc:Ignorable="d"
         Title="OBOS" Height="720" Width="1280"
         AllowsTransparency="True"
         WindowStyle="None"
-        MouseDown="Window_MouseDown"
-        DragEnter="Window_DragEnter">
+        MouseDown="Window_MouseDown">
 
     <Window.Background>
         <ImageBrush ImageSource="Media/Background.jpg"/>
     </Window.Background>
 
     <Border Margin="40"
-            CornerRadius="20"
-            ClipToBounds="True">
-        
+            CornerRadius="20">
+
+        <views:LoginView/>
+
     </Border>
     
     <!--Grid  Height="600" Width="700" Background="Bisque">
