@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace OBOS.Models.Payments
 {
-	public class CashPayment : IPaymentStartegy
-	{
-		public bool Pay()
-		{
-			return false;
-		}
-	}
+    public class CashPayment : IPaymentStartegy
+    {
+        public void Pay(double amount)
+        {
+            Console.WriteLine("Paid using CreditCard", amount);
+        }
+    }
 }

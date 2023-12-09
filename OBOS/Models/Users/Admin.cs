@@ -10,8 +10,10 @@ namespace OBOS.Models.Users
 	public class Admin : User
 	{
 		// <<<< Attributes here >>>>
+		public List<Category> Categories;
 
-		public bool AddCategory(string name)
+
+        public bool AddCategory(string name)
 		{
 			return false;
 		}

@@ -8,6 +8,6 @@ namespace OBOS.Models.Payments
 {
     public interface IPaymentStartegy
     {
-        bool Pay();
+        void Pay(double amount);
     }
 }
