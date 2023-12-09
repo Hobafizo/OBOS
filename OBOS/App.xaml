@@ -93,6 +93,7 @@
             <Setter Property="Background" Value="White"/>
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Foreground" Value="#513408"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TextBox">
@@ -108,6 +109,28 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
+        <Style x:Key="PasswordBox" TargetType="PasswordBox">
+            <Setter Property="BorderBrush" Value="#513408"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Foreground" Value="#513408"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="PasswordBox">
+                        <Border CornerRadius="5"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                Background="{TemplateBinding Background}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Height="25">
+                            <ContentPresenter HorizontalAlignment="Left"/>
+                        </Border>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </Application.Resources>
 </Application>

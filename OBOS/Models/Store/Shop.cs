@@ -30,6 +30,7 @@ namespace OBOS.Models.Store
         public IEnumerable<Book> DisplayTopSellers()
         {
 			//return Books.Where(r => r.Sales >= 12000);
+			return null;
 		}
 		
 
@@ -40,7 +41,8 @@ namespace OBOS.Models.Store
 
 		public IEnumerable<Book> DisplayCategory(Category category)
 		{
-			return Books.Where(c => c.Category.equals(category));
+			//return Books.Where(c => c.Category.equals(category));
+			return null;
 		}
 
 		public static Shop GetInstance()
