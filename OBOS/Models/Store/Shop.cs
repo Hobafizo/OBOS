@@ -35,7 +35,7 @@ namespace OBOS.Models.Store
 			return null;
 		}
 
-		public Shop GetInstance()
+		public static Shop GetInstance()
         {
             return null;
         }
