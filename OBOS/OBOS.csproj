@@ -69,12 +69,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Book.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\IPaymentStartegy.cs" />
-    <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\Store.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Payments\PaymentMethod.cs" />
+    <Compile Include="Models\Users\Admin.cs" />
+    <Compile Include="Models\Users\Customer.cs" />
+    <Compile Include="Models\Users\Notification.cs" />
+    <Compile Include="Models\Store\SimpleBook.cs" />
+    <Compile Include="Models\Store\SpecialBook.cs" />
+    <Compile Include="Models\Store\BookDecorator.cs" />
+    <Compile Include="Models\Store\Category.cs" />
+    <Compile Include="Models\Payments\IPaymentStartegy.cs" />
+    <Compile Include="Models\Payments\Order.cs" />
+    <Compile Include="Models\Store\Book.cs" />
+    <Compile Include="Models\Store\Shop.cs" />
+    <Compile Include="Models\Users\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

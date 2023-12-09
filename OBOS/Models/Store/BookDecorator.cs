@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OBOS.Models
+namespace OBOS.Models.Store
 {
-    public class Book
-    {
-        public float Price { get; set; }
-    }
+	public abstract class BookDecorator : Book
+	{
+		public new abstract float Cost();
+	}
 }

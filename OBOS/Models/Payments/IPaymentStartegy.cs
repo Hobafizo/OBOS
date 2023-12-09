@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OBOS.Models
+namespace OBOS.Models.Payments
 {
-    public abstract class User
+    internal interface IPaymentStartegy
     {
     }
 }

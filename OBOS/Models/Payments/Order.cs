@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OBOS.Models.Users
+    ;
+using OBOS.Models.Store;
 
-namespace OBOS.Models
+namespace OBOS.Models.Payments
 {
     public class Order
     {
@@ -20,7 +23,7 @@ namespace OBOS.Models
             TotalPrice = 0;
             foreach(var item in Items)
             {
-                TotalPrice += item.Key.Price * (float)item.Value;
+                TotalPrice += item.Key.Cost() * (float)item.Value;
             }
             return TotalPrice;
         }
