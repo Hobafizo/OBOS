@@ -27,16 +27,6 @@ namespace OBOS.Models.Store
 			return Price + BaseBook.Cost();
 		}
 
-		public void AssignCategory(Category category)
-		{
-
-		}
-
-		public void UnassignCategory(Category category)
-		{
-
-		}
-
 		public override Book Clone()
 		{
 			return new SpecialBook(Price, BaseBook);
