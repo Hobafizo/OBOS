@@ -4,6 +4,88 @@
              xmlns:local="clr-namespace:OBOS"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="DefaultBorder" TargetType="Border">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="CornerRadius" Value="6"/>
+        </Style>
+        
+        <Style x:Key="BorderStyle" 
+           TargetType="{x:Type Border}"
+           BasedOn="{StaticResource DefaultBorder}">
+            <Setter Property="Width"  Value="300"/>
+            <Setter Property="Height" Value="400"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect BlurRadius="15"
+                              Direction ="-90" 
+                              RenderingBias ="Quality" 
+                              ShadowDepth ="2" 
+                              Color ="Gray" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="LoginButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="250"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Margin" Value="0,25"/>
+            <Setter Property="Content" Value="Login"/>
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="LoginBorder" Background="{TemplateBinding Background}"
+                                            CornerRadius="16">
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                                          VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="AliceBlue" TargetName="LoginBorder"  />
+                                <Setter Property="TextBlock.Foreground" Value="Black"  TargetName="LoginBorder" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="DefaultTextBlock" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="0,15"/>
+        </Style>
+        
+        <Style x:Key="SignUpTextBlock" 
+           TargetType="TextBlock" 
+           BasedOn="{StaticResource DefaultTextBlock}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Margin" Value="0,5" />
+        </Style>
+        
+        <Style x:Key="LoginTextBlock" 
+           TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="25" />
+            <Setter Property="Padding" Value="10" />
+        </Style>
+
+        <Style x:Key="LoginTextBox" TargetType="TextBox">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Width" Value="255"/>
+            <Setter Property="Padding" Value="0,5"/>
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+        </Style>
+        
+        <Style x:Key="LoginPasswordBox" TargetType="PasswordBox">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Width" Value="255"/>
+            <Setter Property="Padding" Value="0,5"/>
+            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+        </Style>
+        
     </Application.Resources>
 </Application>
