@@ -10,27 +10,56 @@ namespace OBOS.Models.Users
 	public class Admin : User
 	{
 		// <<<< Attributes here >>>>
-		public List<Category> Categories;
+		Shop shop;
+        public Admin()
+        {
+			shop = Shop.GetInstance();
 
+        }
 
-        public bool AddCategory(string name)
+        public bool AddCategory( Category category)
 		{
-			return false;
+			if (shop.Categories.Contains(category)) 
+			{
+				return false;
+			}
+			shop.Categories.Add(category);
+			return true;
 		}
 
-		public bool DeleteCategory(string name)
+		public bool DeleteCategory(Category category)
 		{
-			return false;
+            if (shop.Categories.Contains(category))
+            { 
+				shop.Categories.Remove(category);
+                return true;
+            }
+          
+            return false;
+        }
+
+		public bool AddBook(Book book)
+		{
+			if (shop.Books.Contains(book))
+			{
+				return false;
+			}
+			shop.Books.Add(book);
+			return true;
+
 		}
 
-		public void AddBook(Book book)
+		public bool UpdateBookStatus(Book book, BookStatus status)
 		{
-
-		}
-
-		public void UpdateBookStatus(Book book, BookStatus status)
-		{
-
+			foreach (var item in shop.Books)
+			{
+				if (book == item)
+				{
+					book.Status = status;
+					return true;	
+				}
+			}
+			return false;	
 		}
 	}
 }

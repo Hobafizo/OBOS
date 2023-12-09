@@ -34,7 +34,7 @@ namespace OBOS.Models.Users
 			
                 if (cartindex >= 0 && cartindex < Cart.Capacity )
                 {
-					Cart[cartindex].Quantity = quantity;
+					//Cart[cartindex].Quantity = quantity;
                 }
 						
             
