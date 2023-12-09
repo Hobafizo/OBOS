@@ -15,12 +15,12 @@ namespace OBOS.Models.Payments
         public User Customer { get; set; }
         public List<KeyValuePair<Book, int>> Items { get; set; }
         public int Quantity { get; set; }
-        public float TotalPrice { get; set; }
         public DateTime Date { get; set; }
 
-        public float Total()
+        public float TotalCost()
         {
-            TotalPrice = 0;
+            float TotalPrice = 0;
+
             foreach(var item in Items)
             {
                 TotalPrice += item.Key.Cost() * (float)item.Value;

@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace OBOS.Models.Payments
 {
-	public class PaymentMethod
+	public class CreditCardPayment : IPaymentStartegy
 	{
+		// <<<< Attributes here >>>>
+
+		public bool Pay()
+		{
+			return false;
+		}
 	}
 }

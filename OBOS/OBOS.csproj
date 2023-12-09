@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Payments\CashPayment.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
@@ -100,7 +101,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Payments\PaymentMethod.cs" />
+    <Compile Include="Models\Payments\CreditCardPayment.cs" />
     <Compile Include="Models\Users\Admin.cs" />
     <Compile Include="Models\Users\Customer.cs" />
     <Compile Include="Models\Users\Notification.cs" />

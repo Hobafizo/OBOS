@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace OBOS.Models.Payments
 {
-    public interface IPaymentStartegy
-    {
-        bool Pay();
-    }
+	public class CashPayment : IPaymentStartegy
+	{
+		public bool Pay()
+		{
+			return false;
+		}
+	}
 }

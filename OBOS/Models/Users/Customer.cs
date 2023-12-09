@@ -27,7 +27,7 @@ namespace OBOS.Models.Users
 
 		}
 
-		public bool PlaceOrder(PaymentMethod method)
+		public bool PlaceOrder(IPaymentStartegy method)
 		{
 			return false;
 		}
