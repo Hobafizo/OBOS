@@ -14,17 +14,17 @@ namespace OBOS.Models.Store
 
 	public abstract class Book
 	{
-        // <<<< Attributes here >>>>
+		// <<<< Attributes here >>>>
 
-        public string Name { get; set; }
-        public int Id { get; set; }
-        public string Author { get; set; }		
-        public float Price { protected get; set; }
-        public int Stock { get; set; }
-        public BookStatus Status { get; set; }
-        public List<Category> Categories { get; set; }
+		public string Name { get; set; }
+		public int Id { get; set; }
+		public string Author { get; set; }		
+		public float Price { protected get; set; }
+		public int Stock { get; set; }
+		public BookStatus Status { get; set; }
+		public List<Category> Categories { get; set; }
 
-        public float Cost()
+		public float Cost()
 		{
 			return Price;
 		}
