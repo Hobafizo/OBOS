@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace OBOS.Models.Store
 {
-    public class SpecialBook : BookDecorator
-    {
+	public class SpecialBook : BookDecorator
+	{
 		private Book BaseBook;
 
 		public SpecialBook(Book book)
