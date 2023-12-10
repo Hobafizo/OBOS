@@ -1,8 +1,7 @@
 ﻿<Application x:Class="OBOS.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:OBOS"
-             StartupUri="MainWindow.xaml">
+             xmlns:local="clr-namespace:OBOS">
     <Application.Resources>
         <Style x:Key="DefaultBorder" TargetType="Border">
             <Setter Property="Background" Value="White"/>

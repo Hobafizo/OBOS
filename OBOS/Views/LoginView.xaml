@@ -31,7 +31,8 @@
                      Height="40"
                      Foreground="#513408"
                      FontSize="20"
-                     BorderBrush="#513408">
+                     BorderBrush="#513408"
+                     Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}">
 
                 <TextBox.Template>
                     <ControlTemplate TargetType="{x:Type TextBox}">
@@ -55,7 +56,8 @@
             <PasswordBox BorderThickness="2"
                          Height="40"
                          Foreground="#513408"
-                         FontSize="20">
+                         FontSize="20"
+                         PasswordChanged="PasswordBox_PasswordChanged">
 
                 <PasswordBox.Template>
                     <ControlTemplate TargetType="{x:Type PasswordBox}">
@@ -131,16 +133,13 @@
                                     <ControlTemplate TargetType="Button">
                                         <Label FontSize="20"
                                                HorizontalAlignment="Left"
-                                               Foreground="Gray"
+                                               Foreground="IndianRed"
                                                Padding="0"
                                                Margin="0,0"
                                                Cursor="Hand">
                                             SignUp
                                         </Label>
-
-                                        
                                     </ControlTemplate>
-                                    
                                 </Setter.Value>
                             </Setter>
                         </Style>
