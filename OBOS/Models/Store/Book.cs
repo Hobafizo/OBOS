@@ -31,12 +31,12 @@ namespace OBOS.Models.Store
 
 		public void AssignCategory(Category category)
 		{
-
+			Categories.Add(category);
 		}
 
 		public void UnassignCategory(Category category)
 		{
-
+			Categories.Remove(category);
 		}
 
 		public abstract Book Clone();
