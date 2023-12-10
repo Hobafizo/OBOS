@@ -12,10 +12,10 @@ namespace OBOS.Models.Users
 	public class Customer : User
 	{
         // <<<< Attributes here >>>>
+		private Shop shop = Shop.GetInstance();
         Stack<Notification> notifications = new Stack<Notification>();
         List<CartItem> Cart = new List<CartItem>();
 		List<Order> OrderHistory = new List<Order>();
-		//List<CartItem> cartItems = new List<CartItem>();
 
         public int AddCart(Book book, int quantity)
 		{
@@ -40,23 +40,30 @@ namespace OBOS.Models.Users
 						            
 		}
 
-		public bool RemoveCart(List<CartItem> Cartitems)
-		{
-			if (Cartitems.Count < 0 )
-			{
-				return false;
-
-			}
-			foreach (var item in Cartitems)
-			{
-			Cartitems.Remove(item);
-			} 
-			return true;
+		public void RemoveCart(List<CartItem> Cart)
+		{						
+				Cart.Clear();			
 		}
+
+		public void RemoveItem( CartItem cartitem)
+		{
+
+			if (Cart.Contains(cartitem))
+			{
+				Cart.Remove(cartitem);
+			}
+
+		}
+		
 
 		public bool PlaceOrder(IPaymentStartegy method)
 		{
-			return false;
+			foreach(var item in Cart)
+			{
+				item.Book.Stock -=item.Quantity;				
+			}
+			//shop.Users.
+			return true;
 		}
 
 		public void AddReview(Book book, int rating, string message)

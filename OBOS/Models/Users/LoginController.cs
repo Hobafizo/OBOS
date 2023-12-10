@@ -13,7 +13,7 @@ namespace OBOS.Models.Users
 		public static LoginController Controller;
 
 		public User CurrentUser { get; private set; }
-
+		 private Shop shop = Shop.GetInstance(); 
 		private LoginController()
 		{
 			Controller = null;
@@ -24,8 +24,9 @@ namespace OBOS.Models.Users
 
 		public bool Login(string username, string pw)
 		{
-			foreach (var user in Shop.GetInstance().Users)
+			foreach (var user in shop.Users)
 			{
+				
 				if (username == user.UserName && user.Password == pw)
 				{
 					CurrentUser = user;
@@ -38,7 +39,7 @@ namespace OBOS.Models.Users
 		public bool Register(string username, string pw, string confirmpw, string address, string phone, bool isadmin = false)
 		{
 
-			foreach (var user1 in Shop.GetInstance().Users)
+			foreach (var user1 in shop.Users)
 			{
 				if (username == user1.UserName)
 				{
