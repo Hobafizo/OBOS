@@ -15,33 +15,43 @@ namespace OBOS.Models.Users
         Stack<Notification> notifications = new Stack<Notification>();
         List<CartItem> Cart = new List<CartItem>();
 		List<Order> OrderHistory = new List<Order>();
-
+		//List<CartItem> cartItems = new List<CartItem>();
 
         public int AddCart(Book book, int quantity)
 		{
 			if (book.Stock >= quantity)
 			{
-				//book.Quantity = quantity;
 				Cart.Add(new CartItem(book, quantity));	
+			}						
+			return Cart.Count + 1;
+		}
+
+		public void EditCart(Book book, int quantity)
+		{
+
+			foreach (var item in Cart)
+			{
+				if (item.Book == book && quantity >= item.Quantity)
+				{
+					item.Quantity = quantity;
+				}
+
 			}
-			book.Stock -= quantity;				
-			return Cart.Count - 1;
+						            
 		}
 
-		public void EditCart(int cartindex, int quantity)
+		public bool RemoveCart(List<CartItem> Cartitems)
 		{
-			
-                if (cartindex >= 0 && cartindex < Cart.Capacity )
-                {
-					//Cart[cartindex].Quantity = quantity;
-                }
-						
-            
-		}
+			if (Cartitems.Count < 0 )
+			{
+				return false;
 
-		public void RemoveCart(int cartindex)
-		{
-			
+			}
+			foreach (var item in Cartitems)
+			{
+			Cartitems.Remove(item);
+			} 
+			return true;
 		}
 
 		public bool PlaceOrder(IPaymentStartegy method)

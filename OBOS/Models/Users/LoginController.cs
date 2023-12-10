@@ -26,7 +26,7 @@ namespace OBOS.Models.Users
 		{
 			foreach (var user in Shop.GetInstance().Users)
 			{
-				if (CurrentUser.UserName == user.UserName)
+				if (username == user.UserName && user.Password == pw)
 				{
 					CurrentUser = user;
 					return true;
@@ -62,11 +62,10 @@ namespace OBOS.Models.Users
 				return false;
 			}
 			user.Address = address;
-			user.Phone = phone;
-			User.IdCounter++;
+			user.Phone = phone;			
 			Shop.GetInstance().Users.Add(user);
 			CurrentUser = user;
-
+			User.IdCounter++;
 			return true;
 		}
         
@@ -78,6 +77,7 @@ namespace OBOS.Models.Users
 				return false;
 			}
 
+			else
             CurrentUser = null;
 			return true;
 
