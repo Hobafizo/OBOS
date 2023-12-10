@@ -14,22 +14,31 @@ namespace OBOS.Models.Store
 		public SpecialBook(Book book)
 		{
 			BaseBook = book;
+        }
+
+        public override float Cost()
+		{
+			return BaseBook.Cost() + 50;
 		}
 
-		public SpecialBook(float price, Book book)
-		{
-			Price = price;
-			BaseBook = book;
-		}
+        public override string GetDescription()
+        {
+            return BaseBook.GetDescription() + " (special edition)";
+        }
 
-		public override float Cost()
+        public override Book Clone()
 		{
-			return Price + BaseBook.Cost();
-		}
+			Book book = new SpecialBook(BaseBook);
 
-		public override Book Clone()
-		{
-			return new SpecialBook(Price, BaseBook);
-		}
+            book.Id = Id;
+            book.Name = Name;
+            book.Author = Author;
+            book.Price = Price;
+            book.Stock = Stock;
+            book.Status = Status;
+            book.Categories = Categories;
+
+            return book;
+        }
 	}
 }

@@ -11,28 +11,41 @@ namespace OBOS.Models.Users
 	{
 		// <<<< Attributes here >>>>
 		Shop shop;
+        public static Stack<Notification> Notifications = new Stack<Notification>();
+
         public Admin()
         {
 			shop = Shop.GetInstance();
 
         }
 
-        public bool AddCategory( Category category)
+        public bool AddCategory(string name)
 		{
-			if (shop.Categories.Contains(category)) 
-			{
-				return false;
-			}
-			shop.Categories.Add(category);
+            foreach (Category category2 in shop.Categories)
+            {
+                if (category2.Name == name)
+                {
+                    return false;
+                }
+            }
+
+            Category category = new Category();
+            category.Name = name;
+            category.CreationDate = DateTime.Now;
+
+            shop.Categories.Add(category);
 			return true;
 		}
 
-		public bool DeleteCategory(Category category)
+		public bool DeleteCategory(string name)
 		{
-            if (shop.Categories.Contains(category))
-            { 
-				shop.Categories.Remove(category);
-                return true;
+            foreach (Category category in shop.Categories)
+            {
+                if (category.Name == name)
+                {
+                    shop.Categories.Remove(category);
+                    return true;
+                }
             }
           
             return false;

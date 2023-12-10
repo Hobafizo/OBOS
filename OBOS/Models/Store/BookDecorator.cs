@@ -8,6 +8,6 @@ namespace OBOS.Models.Store
 {
 	public abstract class BookDecorator : Book
 	{
-		public new abstract float Cost();
+        
 	}
 }

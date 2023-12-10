@@ -9,11 +9,11 @@ namespace OBOS.Models.Payments
 	public class CreditCardPayment : IPaymentStartegy
 	{
         public string CardID { get; set; }
-        public string ExpiryDate { get; set; }
+        public DateTime ExpiryDate { get; set; }
         public short CVV { get; set; }
         public string HolderName { get; set; } 
 
-        public CreditCardPayment(string CardID, string ExpiryDate, short CVV, string HolderName)
+        public CreditCardPayment(string CardID, DateTime ExpiryDate, short CVV, string HolderName)
         {
             this.CardID = CardID;
             this.ExpiryDate = ExpiryDate;
@@ -25,10 +25,10 @@ namespace OBOS.Models.Payments
         {
         }
 
-        public void Pay(double amount)
+        public bool Pay(double amount)
 		{
-            Console.WriteLine("Paid using CreditCard",amount,CardID,CVV,HolderName,ExpiryDate);
-			
+            //Console.WriteLine("Paid using CreditCard",amount,CardID,CVV,HolderName,ExpiryDate);
+            return true;
 		}
 	}
 }

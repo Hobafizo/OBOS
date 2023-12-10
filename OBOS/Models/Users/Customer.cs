@@ -1,5 +1,4 @@
-﻿using OBOS.Models.Store;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,25 +12,29 @@ namespace OBOS.Models.Users
 	{
         // <<<< Attributes here >>>>
 		private Shop shop = Shop.GetInstance();
-        Stack<Notification> notifications = new Stack<Notification>();
+        Stack<Notification> Notifications = new Stack<Notification>();
         List<CartItem> Cart = new List<CartItem>();
 		List<Order> OrderHistory = new List<Order>();
 
-        public int AddCart(Book book, int quantity)
+        public int AddItem(Book book, int quantity)
 		{
 			if (book.Stock >= quantity)
 			{
-				Cart.Add(new CartItem(book, quantity));	
-			}						
-			return Cart.Count + 1;
+				Cart.Add(new CartItem(book, quantity));
+                return Cart.Count - 1;
+            }
+			return -1;
 		}
 
-		public void EditCart(Book book, int quantity)
+		public void EditItem(int cartindex, int quantity)
 		{
+            CartItem item;
 
-			foreach (var item in Cart)
+			for (int i = 0; i < Cart.Count; ++i)
 			{
-				if (item.Book == book && quantity >= item.Quantity)
+                item = Cart[i];
+
+				if (i == cartindex && quantity >= item.Book.Stock)
 				{
 					item.Quantity = quantity;
 				}
@@ -40,17 +43,17 @@ namespace OBOS.Models.Users
 						            
 		}
 
-		public void RemoveCart(List<CartItem> Cart)
-		{						
-				Cart.Clear();			
-		}
+        public void ClearCart()
+        {
+            Cart.Clear();
+        }
 
-		public void RemoveItem( CartItem cartitem)
+		public void RemoveItem(int cartindex)
 		{
 
-			if (Cart.Contains(cartitem))
+			if (cartindex >= 0 && cartindex < Cart.Count)
 			{
-				Cart.Remove(cartitem);
+				Cart.RemoveAt(cartindex);
 			}
 
 		}
@@ -60,7 +63,13 @@ namespace OBOS.Models.Users
 		{
 			foreach(var item in Cart)
 			{
-				item.Book.Stock -=item.Quantity;				
+				item.Book.Stock -=item.Quantity;
+
+                if (item.Book.Stock == 0)
+                {
+                    item.Book.Status = BookStatus.OutOfStock;
+
+                }
 			}
 			//shop.Users.
 			return true;

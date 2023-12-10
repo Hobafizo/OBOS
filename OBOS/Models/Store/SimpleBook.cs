@@ -10,17 +10,32 @@ namespace OBOS.Models.Store
 	{
 		public SimpleBook()
 		{
-
+            
 		}
 
-		public SimpleBook(float price)
+        public override float Cost()
+        {
+            return Price;
+        }
+
+        public override string GetDescription()
+        {
+            return Name;
+        }
+
+        public override Book Clone()
 		{
-			Price = price;
-		}
+            Book book = new SimpleBook();
 
-		public override Book Clone()
-		{
-			return new SimpleBook(Price);
-		}
+            book.Id = Id;
+            book.Name = Name;
+            book.Author = Author;
+            book.Price = Price;
+            book.Stock = Stock;
+            book.Status = Status;
+            book.Categories = Categories;
+
+            return book;
+        }
 	}
 }

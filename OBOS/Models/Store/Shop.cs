@@ -11,7 +11,7 @@ namespace OBOS.Models.Store
     public class Shop
     {
 		// <<<< Attributes here >>>>
-		public static Shop Instance { get; set; }
+		private static Shop Instance { get; set; }
 		public List<Book> Books { get; set; }
 		public List<Order> Orders { get; set; }
 		public List<User> Users { get; set; }

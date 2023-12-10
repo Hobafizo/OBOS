@@ -8,9 +8,10 @@ namespace OBOS.Models.Payments
 {
     public class CashPayment : IPaymentStartegy
     {
-        public void Pay(double amount)
+        public bool Pay(double amount)
         {
-            Console.WriteLine("Paid using CreditCard", amount);
+            //Console.WriteLine("Paid using CreditCard", amount);
+            return true;
         }
     }
 }
