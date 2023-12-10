@@ -12,7 +12,7 @@ namespace OBOS.ViewModels
 
         public MainViewModel()
         {
-            
+            CurrentViewModel = new LoginViewModel();
         }
     }
 }

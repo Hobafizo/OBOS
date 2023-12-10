@@ -68,8 +68,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Payments\CashPayment.cs" />
-    <Compile Include="Models\Payments\Payment.cs" />
-    <Compile Include="Models\Payments\Program.cs" />
+    <Compile Include="Models\Store\CartItem.cs" />
     <Compile Include="Models\Users\LoginController.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />

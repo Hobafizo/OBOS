@@ -4,9 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OBOS.Models.Store;
 using OBOS.Models.Payments;
-
-using System.Windows.Documents;
 
 namespace OBOS.Models.Users
 {
@@ -14,7 +13,7 @@ namespace OBOS.Models.Users
 	{
         // <<<< Attributes here >>>>
         Stack<Notification> notifications = new Stack<Notification>();
-		List<Book> Cart = new List<Book>();
+        List<CartItem> Cart = new List<CartItem>();
 		List<Order> OrderHistory = new List<Order>();
 
 
@@ -23,10 +22,10 @@ namespace OBOS.Models.Users
 			if (book.Stock >= quantity)
 			{
 				//book.Quantity = quantity;
-				Cart.Add(book);	
+				Cart.Add(new CartItem(book, quantity));	
 			}
 			book.Stock -= quantity;				
-			return Cart.IndexOf(book);
+			return Cart.Count - 1;
 		}
 
 		public void EditCart(int cartindex, int quantity)

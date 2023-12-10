@@ -4,9 +4,250 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:OBOS.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+             mc:Ignorable="d"
+             Height="680" Width="1240"
+             ClipToBounds="True">
+    <Border CornerRadius="5"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Background="AntiqueWhite">
+        <StackPanel Orientation="Vertical"
+                    Width="800"
+                    Margin="10">
+
+            <Label HorizontalAlignment="Center"
+                   FontSize="60"
+                   Foreground="#513408"
+                   FontWeight="Bold"
+                   Margin="20" Content="Sign Up"/>
             
-    </Grid>
+            <StackPanel Orientation="Horizontal">
+            <!-- Username -->
+            <Label Foreground="#513408"
+                   FontWeight="Bold"
+                   FontSize="30"
+                   Margin="10">
+                Username
+            </Label>
+            <TextBox BorderThickness="2"
+                     Height="40"
+                     Width="200"
+                     Foreground="#513408"
+                     FontSize="20"
+                     BorderBrush="#513408"
+                     Margin="0,0,30,0">
+
+                <TextBox.Template>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border Background="{TemplateBinding Background}" 
+                                    x:Name="Bd" 
+                                    BorderBrush="#513408" 
+                                    BorderThickness="{TemplateBinding BorderThickness}" 
+                                    CornerRadius="7">
+                            <ScrollViewer x:Name="PART_ContentHost"
+                                          VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </TextBox.Template>
+            </TextBox>
+
+            <!-- Phone -->
+            <Label Foreground="#513408"
+                   FontWeight="Bold"
+                   FontSize="30"
+                   Margin="10">
+                    Phone
+                </Label>
+            <TextBox BorderThickness="2"
+                     Height="40"
+                     Width="200"
+                     Foreground="#513408"
+                     FontSize="20"
+                     BorderBrush="#513408"
+                     Margin="27,0,35,0">
+
+                    <TextBox.Template>
+                        <ControlTemplate TargetType="{x:Type TextBox}">
+                            <Border Background="{TemplateBinding Background}" 
+                                    x:Name="Bd" 
+                                    BorderBrush="#513408" 
+                                    BorderThickness="{TemplateBinding BorderThickness}" 
+                                    CornerRadius="7">
+                                <ScrollViewer x:Name="PART_ContentHost"
+                                          VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </TextBox.Template>
+            </TextBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <!-- Password -->
+                <Label Foreground="#513408"
+                   FontWeight="Bold"
+                   FontSize="30"
+                   Margin="10">
+                    Password
+                </Label>
+                <PasswordBox BorderThickness="2"
+                         Height="40"
+                         Width="200"
+                         Foreground="#513408"
+                         FontSize="20"
+                         Margin="9,0,30,0">
+
+                    <PasswordBox.Template>
+                        <ControlTemplate TargetType="{x:Type PasswordBox}">
+                            <Border Background="{TemplateBinding Background}" 
+                                    x:Name="Bd" 
+                                    BorderBrush="#513408" 
+                                    BorderThickness="{TemplateBinding BorderThickness}" 
+                                    CornerRadius="7">
+                                <ScrollViewer x:Name="PART_ContentHost"
+                                          VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </PasswordBox.Template>
+
+                </PasswordBox>
+
+                <!-- Confirm Password -->
+                <Label Foreground="#513408"
+                   FontWeight="Bold"
+                   FontSize="30"
+                   Margin="10">
+                    Confirm
+                </Label>
+                <PasswordBox BorderThickness="2"
+                         Height="40"
+                         Width="200"
+                         Foreground="#513408"
+                         FontSize="20"
+                         Margin="1">
+
+                    <PasswordBox.Template>
+                        <ControlTemplate TargetType="{x:Type PasswordBox}">
+                            <Border Background="{TemplateBinding Background}" 
+                                    x:Name="Bd" 
+                                    BorderBrush="#513408" 
+                                    BorderThickness="{TemplateBinding BorderThickness}" 
+                                    CornerRadius="7">
+                                <ScrollViewer x:Name="PART_ContentHost"
+                                          VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </PasswordBox.Template>
+
+                </PasswordBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <!-- Address -->
+                <Label Foreground="#513408"
+                   FontWeight="Bold"
+                   FontSize="30"
+                   Margin="10">
+                    Address
+                </Label>
+                <TextBox BorderThickness="2"
+                     Height="40"
+                     Width="577"
+                     Foreground="#513408"
+                     FontSize="20"
+                     BorderBrush="#513408"
+                     Margin="28,0,35,0">
+
+                    <TextBox.Template>
+                        <ControlTemplate TargetType="{x:Type TextBox}">
+                            <Border Background="{TemplateBinding Background}" 
+                                    x:Name="Bd" 
+                                    BorderBrush="#513408" 
+                                    BorderThickness="{TemplateBinding BorderThickness}" 
+                                    CornerRadius="7">
+                                <ScrollViewer x:Name="PART_ContentHost"
+                                          VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </TextBox.Template>
+                </TextBox>
+            </StackPanel>
+
+            <Button Foreground="#513408"
+                    HorizontalAlignment="Center"
+                    Background="Transparent"
+                    Margin="0,20,0,0"
+                    Width="150"
+                    Height="45"
+                    Content="Register"
+                    BorderBrush="#513408"
+                    BorderThickness="2">
+
+                <Button.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}"
+                                            CornerRadius="5"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            Name="Border">
+
+                                        <TextBlock Text="Register"
+                                                       FontSize="30"
+                                                       HorizontalAlignment="Center"
+                                                       VerticalAlignment="Center"
+                                                       Foreground="#513408"
+                                                   Name="Text"/>
+                                    </Border>
+
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="Border" Property="Background" Value="#513408"/>
+                                            <Setter Property="Cursor" Value="Hand"/>
+                                            <Setter TargetName="Border" Property="BorderThickness" Value="0"/>
+                                            <Setter TargetName="Text" Property="Foreground" Value="antiquewhite"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0,10">
+                <Label Padding="0"
+                       Margin="20,0,5,0"
+                       FontSize="20"
+                       Foreground="#513408">Already have an account?
+                </Label>
+                <Button>
+                    <Button.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Label FontSize="20"
+                                               HorizontalAlignment="Left"
+                                               Foreground="Gray"
+                                               Padding="0"
+                                               Margin="0,0"
+                                               Cursor="Hand">
+                                            Log In
+                                        </Label>
+
+
+                                    </ControlTemplate>
+
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </StackPanel>
+
+        </StackPanel>
+    </Border>
 </UserControl>
