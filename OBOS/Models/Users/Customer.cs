@@ -26,7 +26,7 @@ namespace OBOS.Models.Users
 			return -1;
 		}
 
-		public void EditItem(int cartindex, int quantity)
+		public void EditItem(int cartindex, int quantity) // index of book that will be updated, 
 		{
             CartItem item;
 
