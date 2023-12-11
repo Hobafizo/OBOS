@@ -72,6 +72,7 @@
     <Compile Include="Commands\SignUpCommand.cs" />
     <Compile Include="Commands\ToLogin.cs" />
     <Compile Include="Commands\ToSignUp.cs" />
+    <Compile Include="Commands\ToStore.cs" />
     <Compile Include="Models\Payments\CashPayment.cs" />
     <Compile Include="Models\Store\BookMark.cs" />
     <Compile Include="Models\Store\BookWrap.cs" />

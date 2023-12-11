@@ -16,9 +16,11 @@ namespace OBOS.Models.Store
 		public List<Order> Orders { get; set; }
 		public List<User> Users { get; set; }
 		public List<Category> Categories { get; set; }
-		// Books, Orders mlhom4 getter
 
-		private Shop()
+        public User CurrentUser { get; set; }
+        // Books, Orders mlhom4 getter
+
+        private Shop()
         {
 			Users = new List<User>();
 			Categories = new List<Category>();

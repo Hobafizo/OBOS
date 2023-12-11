@@ -238,7 +238,7 @@
                                     <ControlTemplate TargetType="Button">
                                         <Label FontSize="20"
                                                HorizontalAlignment="Left"
-                                               Foreground="Gray"
+                                               Foreground="Olive"
                                                Padding="0"
                                                Margin="0,0"
                                                Cursor="Hand">

@@ -81,5 +81,15 @@ namespace OBOS.Models.Users
 
 
 		}
+
+        public Customer(int Id,string Username, string Password,string Phone, string Address): base(Id,Username,Password,Address,Phone)
+        {
+
+        }
+
+        public Customer()
+        {
+
+        }
 	}
 }

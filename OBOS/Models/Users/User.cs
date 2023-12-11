@@ -18,7 +18,19 @@ namespace OBOS.Models.Users
         public string Password { get; set; }
         public string Address { get; set; }
         public string Phone { get; set; }
-        public bool IsAdmin { get; set; }
 
+        protected User(int id, string userName, string password, string address, string phone)
+        {
+            Id = id;
+            UserName = userName;
+            Password = password;
+            Address = address;
+            Phone = phone;
+        }
+
+        public User()
+        {
+
+        }
     }
 }

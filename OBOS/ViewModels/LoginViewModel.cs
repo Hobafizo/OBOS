@@ -46,6 +46,7 @@ namespace OBOS.ViewModels
         public LoginViewModel(NavigationStore navigationStore)
         {
             ToSignUp = new ToSignUp(navigationStore);
+            LoginCommand = new LoginCommand(this,navigationStore);
 
         }
     }

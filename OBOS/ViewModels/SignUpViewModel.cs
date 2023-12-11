@@ -71,7 +71,7 @@ namespace OBOS.ViewModels
         public SignUpViewModel(NavigationStore navigationStore)
         {
             ToLogin = new ToLogin(navigationStore);
-            SignUpCommand = new SignUpCommand();
+            SignUpCommand = new SignUpCommand(this, navigationStore);
         }
     }
 }
