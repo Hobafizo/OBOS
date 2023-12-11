@@ -8,7 +8,7 @@ namespace OBOS.Models.Payments
 {
     public class CashPayment : IPaymentStartegy
     {
-        public bool Pay(double amount)
+        public override bool Pay(double amount)
         {
             //Console.WriteLine("Paid using CreditCard", amount);
             return true;

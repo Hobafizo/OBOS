@@ -13,6 +13,7 @@ namespace OBOS.Models.Payments
         public short CVV { get; set; }
         public string HolderName { get; set; } 
 
+
         public CreditCardPayment(string CardID, DateTime ExpiryDate, short CVV, string HolderName)
         {
             this.CardID = CardID;
@@ -25,10 +26,13 @@ namespace OBOS.Models.Payments
         {
         }
 
-        public bool Pay(double amount)
+        public override bool Pay(double amount)
 		{
             //Console.WriteLine("Paid using CreditCard",amount,CardID,CVV,HolderName,ExpiryDate);
             return true;
 		}
 	}
 }
+
+
+

@@ -15,7 +15,7 @@ namespace OBOS.Models.Store
 	public abstract class Book
 	{
         // <<<< Attributes here >>>>
-
+		
         public int Id { get; set; }
         public string Name { get; set; }
 		public string Author { get; set; }		
@@ -23,6 +23,9 @@ namespace OBOS.Models.Store
 		public int Stock { get; set; }
 		public BookStatus Status { get; set; }
 		public List<Category> Categories { get; set; }
+		// additional attribute 
+		//public List<float> rating;
+
 
         public Book()
         {
