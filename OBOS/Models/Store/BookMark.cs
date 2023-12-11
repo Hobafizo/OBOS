@@ -18,7 +18,7 @@ namespace OBOS.Models.Store
 
         public override float Cost()
         {
-            return BaseBook.Cost() + 50;
+            return BaseBook.Cost() + 20;
         }
 
         public override string GetDescription()
