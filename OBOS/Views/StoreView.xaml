@@ -5,8 +5,130 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:OBOS.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+             Height="640" Width="1200">
+    <Border Background="AntiqueWhite"
+            CornerRadius="20">
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="2"
+                       Foreground="#513408"
+                       FontWeight="Bold"
+                       FontSize="60"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,80,0"
+                       Content="Bookstore">
+
+                </Label>
+
+                <Button Grid.Column="1"
+                        Margin="20">
+                    <Button.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Image Source="../Media/Cart.png" 
+                                               Stretch="Uniform" Grid.Column="1"
+                                               Height="100" Cursor="Hand"/>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="500"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Grid.Row="1"
+                         Margin="20,10,0,10"
+                         FontSize="25"
+                         Foreground="#513408"
+                         Text="{Binding Search,UpdateSourceTrigger=PropertyChanged}">
+
+                    <TextBox.Template>
+
+                        <ControlTemplate TargetType="TextBox">
+                            <Border BorderThickness="2"
+                                                CornerRadius="7"
+                                                BorderBrush="#513408"
+                                                Background="White">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Source="../Media/magnifier.png" 
+                                           Stretch="Uniform" 
+                                           Width="20"/>
+
+                                    <ScrollViewer x:Name="PART_ContentHost"
+                                                  VerticalAlignment="Center"
+                                                  Grid.Column="1"/>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+
+                    </TextBox.Template>
+
+                </TextBox>
+
+                <StackPanel>
+
+                </StackPanel>
+            </Grid>
+
+            <StackPanel Grid.Row="2">
+                <Label 
+                       Foreground="#513408"
+                       FontWeight="Bold"
+                       FontSize="40"
+                       HorizontalAlignment="Left"
+                       Margin="20,0"
+                       Content="Best Sellers"/>
+                
+                <StackPanel Orientation="Horizontal"
+                            Background="LightGray">
+
+                </StackPanel>
+
+            </StackPanel>
+
+            <StackPanel Grid.Row="3">
+                <Label 
+                       Foreground="#513408"
+                       FontWeight="Bold"
+                       FontSize="40"
+                       HorizontalAlignment="Left"
+                       Margin="20,0"
+                       Content="Latest Books"/>
+
+                <StackPanel Orientation="Horizontal"
+                            Background="LightGray">
+
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+    </Border>
 </UserControl>

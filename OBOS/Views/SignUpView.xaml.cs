@@ -24,5 +24,21 @@ namespace OBOS.Views
         {
             InitializeComponent();
         }
+
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if(DataContext != null)
+            {
+                ((dynamic)this.DataContext).Password = ((PasswordBox)sender).Password;
+            }
+        }
+
+        private void PasswordBox_PasswordChanged_1(object sender, RoutedEventArgs e)
+        {
+            if (DataContext != null)
+            {
+                ((dynamic)this.DataContext).Confirm = ((PasswordBox)sender).Password;
+            }
+        }
     }
 }

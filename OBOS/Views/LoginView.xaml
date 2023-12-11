@@ -82,7 +82,8 @@
                     Height="40"
                     Content="Login"
                     BorderBrush="#513408"
-                    BorderThickness="2">
+                    BorderThickness="2"
+                    Command="{Binding LoginCommand}">
 
                 <Button.Resources>
                     <Style TargetType="Button">
@@ -125,7 +126,7 @@
                        FontSize="20"
                        Foreground="#513408">Don't have an account?
                 </Label>
-                <Button>
+                <Button Command="{Binding ToSignUp}">
                     <Button.Resources>
                         <Style TargetType="Button">
                             <Setter Property="Template">

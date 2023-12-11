@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Security;
+using System.Windows.Input;
+using OBOS.Commands;
+using OBOS.Stores;
 
 namespace OBOS.ViewModels
 {
     public class LoginViewModel : ViewModelBase
     {
-        public LoginViewModel()
-        {
-
-        }
 
         private string _username;
         public string Username 
@@ -42,5 +40,13 @@ namespace OBOS.ViewModels
             }
         }
 
+        public ICommand LoginCommand { get; }
+        public ICommand ToSignUp { get; }
+
+        public LoginViewModel(NavigationStore navigationStore)
+        {
+            ToSignUp = new ToSignUp(navigationStore);
+
+        }
     }
 }

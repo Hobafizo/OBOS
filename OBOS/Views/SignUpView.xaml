@@ -35,7 +35,8 @@
                      Foreground="#513408"
                      FontSize="20"
                      BorderBrush="#513408"
-                     Margin="0,0,30,0">
+                     Margin="0,0,30,0"
+                     Text="{Binding Username}">
 
                 <TextBox.Template>
                     <ControlTemplate TargetType="{x:Type TextBox}">
@@ -64,7 +65,8 @@
                      Foreground="#513408"
                      FontSize="20"
                      BorderBrush="#513408"
-                     Margin="27,0,35,0">
+                     Margin="27,0,35,0"
+                     Text="{Binding Phone}">
 
                     <TextBox.Template>
                         <ControlTemplate TargetType="{x:Type TextBox}">
@@ -90,11 +92,12 @@
                     Password
                 </Label>
                 <PasswordBox BorderThickness="2"
-                         Height="40"
-                         Width="200"
-                         Foreground="#513408"
-                         FontSize="20"
-                         Margin="9,0,30,0">
+                             Height="40"
+                             Width="200"
+                             Foreground="#513408"
+                             FontSize="20"
+                             Margin="9,0,30,0"
+                             PasswordChanged="PasswordBox_PasswordChanged">
 
                     <PasswordBox.Template>
                         <ControlTemplate TargetType="{x:Type PasswordBox}">
@@ -119,11 +122,12 @@
                     Confirm
                 </Label>
                 <PasswordBox BorderThickness="2"
-                         Height="40"
-                         Width="200"
-                         Foreground="#513408"
-                         FontSize="20"
-                         Margin="1">
+                             Height="40"
+                             Width="200"
+                             Foreground="#513408"
+                             FontSize="20"
+                             Margin="1"
+                             PasswordChanged="PasswordBox_PasswordChanged_1">
 
                     <PasswordBox.Template>
                         <ControlTemplate TargetType="{x:Type PasswordBox}">
@@ -150,12 +154,13 @@
                     Address
                 </Label>
                 <TextBox BorderThickness="2"
-                     Height="40"
-                     Width="577"
-                     Foreground="#513408"
-                     FontSize="20"
-                     BorderBrush="#513408"
-                     Margin="28,0,35,0">
+                         Height="40"
+                         Width="577"
+                         Foreground="#513408"
+                         FontSize="20"
+                         BorderBrush="#513408"
+                         Margin="28,0,35,0"
+                         Text="{Binding Address}">
 
                     <TextBox.Template>
                         <ControlTemplate TargetType="{x:Type TextBox}">
@@ -180,7 +185,8 @@
                     Height="45"
                     Content="Register"
                     BorderBrush="#513408"
-                    BorderThickness="2">
+                    BorderThickness="2"
+                    Command="{Binding SignUpCommand}">
 
                 <Button.Resources>
                     <Style TargetType="Button">
@@ -215,6 +221,7 @@
                     </Style>
                 </Button.Resources>
             </Button>
+            
             <StackPanel Orientation="Horizontal"
                         HorizontalAlignment="Center"
                         Margin="0,10">
@@ -223,7 +230,7 @@
                        FontSize="20"
                        Foreground="#513408">Already have an account?
                 </Label>
-                <Button>
+                <Button Command="{Binding ToLogin}">
                     <Button.Resources>
                         <Style TargetType="Button">
                             <Setter Property="Template">

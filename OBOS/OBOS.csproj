@@ -67,11 +67,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\LoginCommand.cs" />
+    <Compile Include="Commands\SignUpCommand.cs" />
+    <Compile Include="Commands\ToLogin.cs" />
+    <Compile Include="Commands\ToSignUp.cs" />
     <Compile Include="Models\Payments\CashPayment.cs" />
     <Compile Include="Models\Store\CartItem.cs" />
     <Compile Include="Models\Users\LoginController.cs" />
+    <Compile Include="Stores\NavigationStore.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\SignUpViewModel.cs" />
+    <Compile Include="ViewModels\StoreViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\AdminView.xaml.cs">
       <DependentUpon>AdminView.xaml</DependentUpon>
@@ -154,9 +162,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Media\Cart.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Media\Background.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\magnifier.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
