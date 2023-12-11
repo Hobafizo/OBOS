@@ -26,7 +26,7 @@ namespace OBOS.Models.Users
 			return -1;
 		}
 
-		public void EditItem(int cartindex, int quantity) // index of book that will be updated, 
+		public void EditItem(int cartindex, int quantity) // index of book that will be updated,
 		{
             CartItem item;
 
@@ -34,7 +34,7 @@ namespace OBOS.Models.Users
 			{
                 item = Cart[i];
 
-				if (i == cartindex && quantity >= item.Book.Stock)
+				if (i == cartindex && quantity >= item.Book.Stock) 
 				{
 					item.Quantity = quantity;
 				}
@@ -77,6 +77,8 @@ namespace OBOS.Models.Users
 
 		public void AddReview(Book book, int rating, string message)
 		{
+
+
 
 		}
 	}
