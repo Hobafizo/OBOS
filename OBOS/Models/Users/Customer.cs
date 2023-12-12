@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using OBOS.Models.Store;
 using OBOS.Models.Payments;
 using Newtonsoft.Json;
+using System.Windows.Controls;
 
 namespace OBOS.Models.Users
 {
@@ -13,9 +14,12 @@ namespace OBOS.Models.Users
     {
         // <<<< Attributes here >>>>
         private Shop shop = Shop.GetInstance();
-
+        int Order_Id = 1;
         [JsonIgnore]
         public Stack<Notification> Notifications;
+
+        Order order = new Order();
+       
 
         public List<CartItem> Cart;
 
@@ -79,21 +83,39 @@ namespace OBOS.Models.Users
 
 		public bool PlaceOrder(IPaymentStartegy method)
 		{
-			foreach(var item in Cart)
-			{
-				item.Book.Stock -=item.Quantity;
+            
+            float TP = order.TotalCost();
+            while (method.Pay(TP) == true)
+            {
 
-                if (item.Book.Stock == 0)
+                foreach (var item in Cart)
                 {
-                    item.Book.Status = BookStatus.OutOfStock;
-
+                    item.Book.Stock -= item.Quantity;
                 }
-			}
-			//shop.Users.
-			return true;
-		}
 
-		public void AddReview(Book book, int rating, string message)
+                order.Date = System.DateTime.Now;
+                order.Id = Order_Id;
+                foreach (var item in Cart)
+                {
+                    if (item.Book.Stock == 0)
+                    {
+                        item.Book.Status = BookStatus.OutOfStock;
+
+                    }
+                }
+                order.CustomerId = Id;
+              //  order.Customer =
+
+                //order.Customer = Shop.GetInstance().Users.;
+
+                //OrderHistory.Add(order);
+                Order_Id += 1;
+            }
+            return false;
+
+        }
+
+        public void AddReview(Book book, int rating, string message)
 		{
 
 

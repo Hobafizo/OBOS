@@ -45,7 +45,7 @@ namespace OBOS
 
         private void OnSettings()
         {
-            Settings.Load();
+            //Settings.Load();
 
             /*Shop shop = Shop.GetInstance();
 
