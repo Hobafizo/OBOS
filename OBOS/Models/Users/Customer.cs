@@ -5,16 +5,34 @@ using System.Text;
 using System.Threading.Tasks;
 using OBOS.Models.Store;
 using OBOS.Models.Payments;
+using Newtonsoft.Json;
 
 namespace OBOS.Models.Users
 {
-	public class Customer : User
-	{
+    public class Customer : User
+    {
         // <<<< Attributes here >>>>
-		private Shop shop = Shop.GetInstance();
-        Stack<Notification> Notifications = new Stack<Notification>();
-        List<CartItem> Cart = new List<CartItem>();
-		List<Order> OrderHistory = new List<Order>();
+        private Shop shop = Shop.GetInstance();
+
+        [JsonIgnore]
+        public Stack<Notification> Notifications;
+
+        public List<CartItem> Cart;
+
+        [JsonIgnore]
+        public List<Order> OrderHistory;
+
+        public Customer()
+        {
+            Notifications = new Stack<Notification>();
+            Cart = new List<CartItem>();
+            OrderHistory = new List<Order>();
+        }
+
+        public Customer(int Id, string Username, string Password, string Phone, string Address) : base(Id, Username, Password, Address, Phone)
+        {
+
+        }
 
         public int AddItem(Book book, int quantity)
 		{
@@ -81,15 +99,5 @@ namespace OBOS.Models.Users
 
 
 		}
-
-        public Customer(int Id,string Username, string Password,string Phone, string Address): base(Id,Username,Password,Address,Phone)
-        {
-
-        }
-
-        public Customer()
-        {
-
-        }
 	}
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace OBOS.Models.Store
 {
@@ -14,22 +15,41 @@ namespace OBOS.Models.Store
 
 	public abstract class Book
 	{
-        // <<<< Attributes here >>>>
-		
         public int Id { get; set; }
         public string Name { get; set; }
 		public string Author { get; set; }		
-		public float Price { protected get; set; }
-		public int Stock { get; set; }
+		public float Price { get; set; }
+        public int Stock { get; set; }
 		public BookStatus Status { get; set; }
-		public List<Category> Categories { get; set; }
+
+        public List<string> CategoryNames { get; set; }
+
+        private List<Category> m_categories;
+
+        [JsonIgnore]
+        public List<Category> Categories
+        {
+            get
+            {
+                if (m_categories == null)
+                    m_categories = Shop.GetInstance().GetCategories(CategoryNames);
+                return m_categories;
+            }
+
+            set
+            {
+                CategoryNames = value.Select(x => x.Name).ToList();
+                m_categories = value;
+            }
+        }
+
 		// additional attribute 
 		//public List<float> rating;
 
 
         public Book()
         {
-            Categories = new List<Category>();
+            CategoryNames = new List<string>();
         }
 
         public abstract float Cost();
@@ -37,11 +57,13 @@ namespace OBOS.Models.Store
 
 		public void AssignCategory(Category category)
 		{
-			Categories.Add(category);
+            CategoryNames.Add(category.Name);
+            Categories.Add(category);
 		}
 
 		public void UnassignCategory(Category category)
 		{
+            CategoryNames.Remove(category.Name);
 			Categories.Remove(category);
 		}
 

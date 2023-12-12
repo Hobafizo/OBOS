@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using OBOS.Models.Users;
 using OBOS.Models.Payments;
+using Newtonsoft.Json;
 
 namespace OBOS.Models.Store
 {
@@ -12,10 +13,11 @@ namespace OBOS.Models.Store
     {
 		// <<<< Attributes here >>>>
 		private static Shop Instance { get; set; }
-		public List<Book> Books { get; set; }
+
+        public List<User> Users { get; set; }
+        public List<Category> Categories { get; set; }
+        public List<Book> Books { get; set; }
 		public List<Order> Orders { get; set; }
-		public List<User> Users { get; set; }
-		public List<Category> Categories { get; set; }
 
         public User CurrentUser { get; set; }
         // Books, Orders mlhom4 getter
@@ -28,7 +30,6 @@ namespace OBOS.Models.Store
 			Orders = new List<Order>();
 		}
 
-        
         public IEnumerable<Book> DisplayTopSellers()
         {
 			//return Books.Where(r => r.Sales >= 12000);
@@ -47,7 +48,45 @@ namespace OBOS.Models.Store
 			return null;
 		}
 
-		public static Shop GetInstance()
+        public User GetUser(int id)
+        {
+            return Users.FirstOrDefault(x => x.Id == id);
+        }
+
+        public Category GetCategory(string name)
+        {
+            return Categories.FirstOrDefault(x => x.Name == name);
+        }
+
+        public List<Category> GetCategories(List<string> names)
+        {
+            List<Category> categories = new List<Category>();
+
+            foreach (Category cat in Categories)
+            {
+                if (names.Contains(cat.Name))
+                    categories.Add(cat);
+            }
+
+            return categories;
+        }
+
+        public Book GetBook(int id)
+        {
+            return Books.FirstOrDefault(x => x.Id == id);
+        }
+
+        public Order GetOrder(int id)
+        {
+            return Orders.FirstOrDefault(x => x.Id == id);
+        }
+
+        public static void SetInstance(JsonSerializer serializer, JsonReader reader)
+        {
+            Instance = serializer.Deserialize<Shop>(reader);
+        }
+
+        public static Shop GetInstance()
         {
 			if (Instance == null)
 			{
