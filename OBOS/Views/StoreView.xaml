@@ -22,21 +22,26 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="20"/>
                     <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
                     <ColumnDefinition/>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="20"/>
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="2"
+                <Label Grid.Column="3"
                        Foreground="#513408"
                        FontWeight="Bold"
                        FontSize="60"
+                       Margin="200,0,0,0"
                        HorizontalAlignment="Center"
-                       Margin="0,0,80,0"
                        Content="Bookstore">
 
                 </Label>
 
                 <Button Grid.Column="1"
-                        Margin="20">
+                        Margin="30"
+                        Command="{Binding ToCart}">
                     <Button.Resources>
                         <Style TargetType="Button">
                             <Setter Property="Template">
@@ -44,13 +49,61 @@
                                     <ControlTemplate TargetType="Button">
                                         <Image Source="../Media/Cart.png" 
                                                Stretch="Uniform" Grid.Column="1"
-                                               Height="100" Cursor="Hand"/>
+                                               Height="100" Cursor="Hand"
+                                               HorizontalAlignment="{TemplateBinding HorizontalAlignment}"/>
                                     </ControlTemplate>
                                 </Setter.Value>
                             </Setter>
                         </Style>
                     </Button.Resources>
                 </Button>
+
+                <Button Grid.Column="2"
+                        Margin="0,30,60,30"
+                        Command="{Binding ToHistory}">
+                    <Button.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Image Source="../Media/History.png" 
+                                               Stretch="Uniform" Grid.Column="1"
+                                               Height="100" Cursor="Hand"
+                                               HorizontalAlignment="{TemplateBinding HorizontalAlignment}"/>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button Grid.Column="5"
+                        Margin="30"
+                        Command="{Binding ToLogin}">
+                    <Button.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Image Source="../Media/Logout.png" 
+                                               Stretch="Uniform" Grid.Column="1"
+                                               Height="100" Cursor="Hand"
+                                               HorizontalAlignment="{TemplateBinding HorizontalAlignment}"/>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Label Grid.Column="4"
+                       Foreground="#513408"
+                       FontSize="30"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center">
+                    Username
+                </Label>
+
             </Grid>
 
             <Grid Grid.Row="1">

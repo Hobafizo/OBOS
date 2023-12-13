@@ -19,7 +19,8 @@
     </Window.Background>
 
     <Border>
-        <Border.Resources>
+        <Grid>
+        <Grid.Resources>
 
             <DataTemplate DataType="{x:Type viewModels:LoginViewModel}">
                 <views:LoginView/>
@@ -33,10 +34,40 @@
                 <views:StoreView/>
             </DataTemplate>
 
-        </Border.Resources>
+        </Grid.Resources>
 
         <ContentControl Content="{Binding CurrentViewModel}"/>
 
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Button Grid.Column="1"
+                        Click="Button_Click"
+                        Cursor="Hand">
+
+                    <Button.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Image Source="Media/X.png"/>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Resources>
+                    
+                </Button>
+            </Grid>
+</Grid>
     </Border>
     
 </Window>

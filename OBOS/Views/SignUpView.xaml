@@ -36,7 +36,7 @@
                      FontSize="20"
                      BorderBrush="#513408"
                      Margin="0,0,30,0"
-                     Text="{Binding Username}">
+                     Text="{Binding Username,UpdateSourceTrigger=PropertyChanged}">
 
                 <TextBox.Template>
                     <ControlTemplate TargetType="{x:Type TextBox}">
@@ -66,7 +66,7 @@
                      FontSize="20"
                      BorderBrush="#513408"
                      Margin="27,0,35,0"
-                     Text="{Binding Phone}">
+                     Text="{Binding Phone,UpdateSourceTrigger=PropertyChanged}">
 
                     <TextBox.Template>
                         <ControlTemplate TargetType="{x:Type TextBox}">
@@ -160,7 +160,7 @@
                          FontSize="20"
                          BorderBrush="#513408"
                          Margin="28,0,35,0"
-                         Text="{Binding Address}">
+                         Text="{Binding Address,UpdateSourceTrigger=PropertyChanged}">
 
                     <TextBox.Template>
                         <ControlTemplate TargetType="{x:Type TextBox}">

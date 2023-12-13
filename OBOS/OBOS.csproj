@@ -73,6 +73,7 @@
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\LoginCommand.cs" />
     <Compile Include="Commands\SignUpCommand.cs" />
+    <Compile Include="Commands\Tohistory.cs" />
     <Compile Include="Commands\ToLogin.cs" />
     <Compile Include="Commands\ToSignUp.cs" />
     <Compile Include="Commands\ToStore.cs" />
@@ -178,6 +179,12 @@
   <ItemGroup>
     <Resource Include="Media\magnifier.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Media\X.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\History.png" />
+    <Resource Include="Media\Logout.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
