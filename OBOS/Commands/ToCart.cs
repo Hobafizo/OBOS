@@ -8,18 +8,18 @@ using OBOS.ViewModels;
 
 namespace OBOS.Commands
 {
-    public class ToHistory : CommandBase
+    public class ToCart : CommandBase
     {
         private readonly NavigationStore _navigationStore;
 
-        public ToHistory(NavigationStore navigationStore)
+        public ToCart(NavigationStore navigationStore)
         {
             _navigationStore = navigationStore;
         }
 
         public override void Execute(object parameter)
         {
-            _navigationStore.CurrentViewModel = new HistoryViewModel(_navigationStore);
+            _navigationStore.CurrentViewModel = new CartViewModel(_navigationStore);
         }
     }
 }

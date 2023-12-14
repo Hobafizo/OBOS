@@ -11,8 +11,10 @@ namespace OBOS.ViewModels
 {
     public class StoreViewModel : ViewModelBase
     {
-        private string _search;
+        private readonly NavigationStore _storeNavigationStore;
+        public ViewModelBase CurrentViewModel => _storeNavigationStore.CurrentViewModel;
 
+        private string _search;
         public string Search 
         { 
             get 
@@ -23,16 +25,34 @@ namespace OBOS.ViewModels
             {
                 _search = value;
                 OnPropertyChanged(nameof(Search));
+                SearchCommand.Execute(Search);
             } 
         }
 
         public ICommand ToLogin { get; }
         public ICommand ToHistory { get; }
         public ICommand ToCart { get; }
+        public ICommand ToHome { get; }
+        public ICommand SearchCommand { get; }
 
         public StoreViewModel(NavigationStore navigationStore)
         {
-            ToLogin=new ToLogin(navigationStore);
+            _storeNavigationStore = new NavigationStore();
+            _storeNavigationStore.CurrentViewModel = new HomeViewModel(_storeNavigationStore);
+
+            _storeNavigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
+
+            ToLogin = new ToLogin(navigationStore);
+            ToHistory = new ToHistory(_storeNavigationStore);
+            ToCart = new ToCart(_storeNavigationStore);
+            SearchCommand = new SearchCommand(_storeNavigationStore);
+            ToHome = new ToHome(_storeNavigationStore);
         }
+
+        private void OnCurrentViewModelChanged()
+        {
+            OnPropertyChanged(nameof(CurrentViewModel));
+        }
+
     }
 }

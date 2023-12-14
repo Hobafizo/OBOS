@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:OBOS.Views"
+             xmlns:viewModels="clr-namespace:OBOS.ViewModels"
              mc:Ignorable="d" 
              Height="640" Width="1200">
     <Border Background="AntiqueWhite"
@@ -13,7 +14,6 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
                 <RowDefinition Height="60"/>
-                <RowDefinition />
                 <RowDefinition />
                 <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
@@ -29,15 +29,28 @@
                     <ColumnDefinition Width="20"/>
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="3"
-                       Foreground="#513408"
-                       FontWeight="Bold"
-                       FontSize="60"
-                       Margin="200,0,0,0"
-                       HorizontalAlignment="Center"
-                       Content="Bookstore">
+                <Button Grid.Column="3"
+                        Margin="200,0,0,0"
+                        HorizontalAlignment="Center"
+                        Cursor="Hand"
+                        Command="{Binding ToHome}">
+                    <Button.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Label Foreground="#513408"
+                                               FontWeight="Bold"
+                                               FontSize="60"
+                                               Content="Bookstore"/>
 
-                </Label>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                
 
                 <Button Grid.Column="1"
                         Margin="30"
@@ -151,37 +164,24 @@
                 </StackPanel>
             </Grid>
 
-            <StackPanel Grid.Row="2">
-                <Label 
-                       Foreground="#513408"
-                       FontWeight="Bold"
-                       FontSize="40"
-                       HorizontalAlignment="Left"
-                       Margin="20,0"
-                       Content="Best Sellers"/>
-                
-                <StackPanel Orientation="Horizontal"
-                            Background="LightGray">
+            <Grid Grid.Row="2">
+                <Grid.Resources>
+                    <DataTemplate DataType="{x:Type viewModels:HomeViewModel}">
+                        <local:HomeView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewModels:CartViewModel}">
+                        <local:CartView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewModels:HistoryViewModel}">
+                        <local:HistoryView/>
+                    </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewModels:SearchViewModel}">
+                        <local:SearchView/>
+                    </DataTemplate>
+                </Grid.Resources>
+                <ContentControl Content="{Binding CurrentViewModel}"/>
+            </Grid>
 
-                </StackPanel>
-
-            </StackPanel>
-
-            <StackPanel Grid.Row="3">
-                <Label 
-                       Foreground="#513408"
-                       FontWeight="Bold"
-                       FontSize="40"
-                       HorizontalAlignment="Left"
-                       Margin="20,0"
-                       Content="Latest Books"/>
-
-                <StackPanel Orientation="Horizontal"
-                            Background="LightGray">
-
-                </StackPanel>
-
-            </StackPanel>
         </Grid>
     </Border>
 </UserControl>
