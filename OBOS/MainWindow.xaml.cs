@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using OBOS.Database;
 namespace OBOS
 {
 	/// <summary>
@@ -38,6 +38,7 @@ namespace OBOS
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+			Settings.Save();
 			Application.Current.Shutdown();
         }
     }

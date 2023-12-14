@@ -167,7 +167,7 @@
             <Grid Grid.Row="2">
                 <Grid.Resources>
                     <DataTemplate DataType="{x:Type viewModels:HomeViewModel}">
-                        <local:HomeView/>
+                        <local:HomeView DataContext="{x:Type viewModels:HomeViewModel}"/>
                     </DataTemplate>
                     <DataTemplate DataType="{x:Type viewModels:CartViewModel}">
                         <local:CartView/>
