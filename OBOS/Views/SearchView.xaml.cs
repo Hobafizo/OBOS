@@ -24,14 +24,13 @@ namespace OBOS.Views
         public SearchView()
         {
             InitializeComponent();
-            display();
         }
 
-        void display()
+        private void UserControl_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
             if (DataContext != null)
             {
-                foreach (var item in ((dynamic)this.DataContext).SearchResult)
+                foreach (var item in ((dynamic)DataContext).SearchResult)
                 {
 
                 }

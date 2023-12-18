@@ -23,6 +23,7 @@ namespace OBOS.Views
         public HomeView()
         {
             InitializeComponent();
+
         }
     }
 }

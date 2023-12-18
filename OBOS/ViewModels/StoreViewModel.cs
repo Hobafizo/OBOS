@@ -12,7 +12,7 @@ namespace OBOS.ViewModels
     public class StoreViewModel : ViewModelBase
     {
         private readonly NavigationStore _storeNavigationStore;
-        public ViewModelBase CurrentViewModel => _storeNavigationStore.CurrentViewModel;
+        public ViewModelBase StoreCurrentViewModel => _storeNavigationStore.CurrentViewModel;
 
         private string _search;
         public string Search 
@@ -51,7 +51,7 @@ namespace OBOS.ViewModels
 
         private void OnCurrentViewModelChanged()
         {
-            OnPropertyChanged(nameof(CurrentViewModel));
+            OnPropertyChanged(nameof(StoreCurrentViewModel));
         }
 
     }

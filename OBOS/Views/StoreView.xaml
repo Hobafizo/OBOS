@@ -167,7 +167,7 @@
             <Grid Grid.Row="2">
                 <Grid.Resources>
                     <DataTemplate DataType="{x:Type viewModels:HomeViewModel}">
-                        <local:HomeView DataContext="{x:Type viewModels:HomeViewModel}"/>
+                        <local:HomeView/>
                     </DataTemplate>
                     <DataTemplate DataType="{x:Type viewModels:CartViewModel}">
                         <local:CartView/>
@@ -179,7 +179,7 @@
                         <local:SearchView/>
                     </DataTemplate>
                 </Grid.Resources>
-                <ContentControl Content="{Binding CurrentViewModel}"/>
+                <ContentControl Content="{Binding StoreCurrentViewModel}"/>
             </Grid>
 
         </Grid>

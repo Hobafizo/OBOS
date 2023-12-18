@@ -11,7 +11,8 @@ namespace OBOS.ViewModels
     {
         public HomeViewModel(NavigationStore navigationStore)
         {
-            
+
         }
     }
 }
+    
