@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using OBOS.ViewModels;
-using OBOS.Models.Store;
 using System.Windows.Input;
-using OBOS.Stores;
 using System.ComponentModel;
+using OBOS.ViewModels;
+using OBOS.Stores;
+using OBOS.Models.Store;
+using OBOS.Models.Users;
 
 namespace OBOS.Commands
 {
@@ -16,13 +17,15 @@ namespace OBOS.Commands
         private readonly LoginViewModel loginViewModel;
         private readonly Shop shop;
         private ICommand ToStore { get; }
+		private ICommand ToAdmin { get; }
 
-        public LoginCommand(LoginViewModel viewModel, NavigationStore navigationStore)
+		public LoginCommand(LoginViewModel viewModel, NavigationStore navigationStore)
         {
             loginViewModel = viewModel;
             shop = Shop.GetInstance();
             ToStore = new ToStore(navigationStore);
-            loginViewModel.PropertyChanged += OnViewModelPropertyChanged;
+			ToAdmin = new ToAdmin(navigationStore);
+			loginViewModel.PropertyChanged += OnViewModelPropertyChanged;
         }
 
         private void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -35,8 +38,9 @@ namespace OBOS.Commands
 
         public override void Execute(object parameter)
         {
-            if (Login(loginViewModel.Username, loginViewModel.Password))
-                ToStore.Execute(null);
+            User user = Login(loginViewModel.Username, loginViewModel.Password);
+            ICommand cmd = user.GetType() == typeof(Admin) ? ToAdmin : ToStore;
+            cmd.Execute(null);
         }
 
         public override bool CanExecute(object parameter)
@@ -46,7 +50,7 @@ namespace OBOS.Commands
                 base.CanExecute(parameter);
         }
 
-        public bool Login(string username, string pw)
+        public User Login(string username, string pw)
         {
             foreach (var user in shop.Users)
             {
@@ -54,10 +58,10 @@ namespace OBOS.Commands
                 if (username == user.UserName && user.Password == pw)
                 {
                     shop.CurrentUser = user;
-                    return true;
+                    return user;
                 }
             }
-            return false;
+            return null;
         }
 
     }

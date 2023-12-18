@@ -74,6 +74,7 @@
     <Compile Include="Commands\LoginCommand.cs" />
     <Compile Include="Commands\SearchCommand.cs" />
     <Compile Include="Commands\SignUpCommand.cs" />
+    <Compile Include="Commands\ToAdmin.cs" />
     <Compile Include="Commands\ToCart.cs" />
     <Compile Include="Commands\ToHistory.cs" />
     <Compile Include="Commands\ToHome.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Models\Users\LoginController.cs" />
     <Compile Include="Database\Settings.cs" />
     <Compile Include="Stores\NavigationStore.cs" />
+    <Compile Include="ViewModels\AdminViewModel.cs" />
     <Compile Include="ViewModels\CartViewModel.cs" />
     <Compile Include="ViewModels\HistoryViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
