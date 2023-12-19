@@ -74,6 +74,7 @@
     <Compile Include="Commands\LoginCommand.cs" />
     <Compile Include="Commands\SearchCommand.cs" />
     <Compile Include="Commands\SignUpCommand.cs" />
+    <Compile Include="Commands\ToAdmin.cs" />
     <Compile Include="Commands\ToCart.cs" />
     <Compile Include="Commands\ToHistory.cs" />
     <Compile Include="Commands\ToHome.cs" />
@@ -81,12 +82,14 @@
     <Compile Include="Commands\ToSignUp.cs" />
     <Compile Include="Commands\ToStore.cs" />
     <Compile Include="Models\Payments\CashPayment.cs" />
+    <Compile Include="Models\Payments\ContextStrategy.cs" />
     <Compile Include="Models\Store\BookMark.cs" />
     <Compile Include="Models\Store\BookWrap.cs" />
     <Compile Include="Models\Store\CartItem.cs" />
     <Compile Include="Models\Users\LoginController.cs" />
     <Compile Include="Database\Settings.cs" />
     <Compile Include="Stores\NavigationStore.cs" />
+    <Compile Include="ViewModels\AdminViewModel.cs" />
     <Compile Include="ViewModels\CartViewModel.cs" />
     <Compile Include="ViewModels\HistoryViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />

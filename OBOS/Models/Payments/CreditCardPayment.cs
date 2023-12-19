@@ -26,7 +26,7 @@ namespace OBOS.Models.Payments
         {
         }
 
-        public bool Pay(double amount)
+        public bool Pay(float amount)
 		{
             //Console.WriteLine("Paid using CreditCard",amount,CardID,CVV,HolderName,ExpiryDate);
             return true;
