@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="OBOS.Views.BookView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:OBOS.Views"
+             mc:Ignorable="d" 
+             Height="216" Width="216">
+    <Border Background="White"
+            CornerRadius="10">
+        <StackPanel Orientation="Vertical">
+            <Image Name="Cover" Width="100" Height="100"/>
+            <TextBlock Name="Title"/>
+            <Button> Add to cart</Button>
+            <TextBox Name="Count"/>
+
+        </StackPanel>
+    </Border>
+</UserControl>

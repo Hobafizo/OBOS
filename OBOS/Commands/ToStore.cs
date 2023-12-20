@@ -19,7 +19,7 @@ namespace OBOS.Commands
 
         public override void Execute(object parameter)
         {
-            _navigationStore.CurrentViewModel = new StoreViewModel(_navigationStore);
+            _navigationStore.CurrentViewModel = new StoreViewModel(_navigationStore, (string)parameter);
         }
     }
 }

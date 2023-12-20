@@ -113,8 +113,8 @@
                        Foreground="#513408"
                        FontSize="30"
                        HorizontalAlignment="Right"
-                       VerticalAlignment="Center">
-                    Username
+                       VerticalAlignment="Center"
+                       Content="{Binding UserName}">
                 </Label>
 
             </Grid>

@@ -15,7 +15,7 @@ namespace OBOS.ViewModels
 
         public SearchViewModel(List<Book> result,NavigationStore navigationStore)
         {
-            SearchResult = result.ToList();
+            SearchResult = result;
         }
     }
 }

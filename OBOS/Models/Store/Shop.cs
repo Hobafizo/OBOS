@@ -39,7 +39,7 @@ namespace OBOS.Models.Store
 
 		public IEnumerable<Book> DisplayAllBooks()
 		{
-		 return Books;
+            return Books;
 		}
 
 		public IEnumerable<Book> DisplayCategory(Category category)
@@ -47,6 +47,18 @@ namespace OBOS.Models.Store
 			//return Books.Where(c => c.Category.equals(category));
 			return null;
 		}
+
+        public IEnumerable<Book> DisplayLatest()
+        {
+            int count = 0;
+            IEnumerable<Book> books = new List<Book>();
+            for (int i = Books.Count - 1; count < 5; i--)
+            {
+                count++;
+                books.ToList().Add(Books[i]);
+            }
+            return books;
+        }
 
         public User GetUser(int id)
         {

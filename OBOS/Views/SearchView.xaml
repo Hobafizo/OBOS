@@ -9,8 +9,16 @@
              DataContextChanged="UserControl_DataContextChanged">
     <Grid>
         <Label HorizontalAlignment="Center"
-               VerticalAlignment="Center">
+               VerticalAlignment="Center"
+               Name="NoResult"
+               FontSize="40"
+               Foreground="#513408"
+               Visibility="Hidden">
             No results
         </Label>
+        
+        <Canvas Name="Canvas">
+            
+        </Canvas>
     </Grid>
 </UserControl>

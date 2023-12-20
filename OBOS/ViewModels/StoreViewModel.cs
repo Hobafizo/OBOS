@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 using OBOS.Stores;
 using System.Windows.Input;
 using OBOS.Commands;
+using OBOS.Models.Store;
 
 namespace OBOS.ViewModels
 {
     public class StoreViewModel : ViewModelBase
     {
+        private readonly Shop shop;
         private readonly NavigationStore _storeNavigationStore;
         public ViewModelBase StoreCurrentViewModel => _storeNavigationStore.CurrentViewModel;
 
@@ -29,13 +31,28 @@ namespace OBOS.ViewModels
             } 
         }
 
+        private string _username;
+        public string UserName
+        {
+            get { return _username; }
+            set
+            {
+                _username = value;
+                OnPropertyChanged(UserName);
+            }
+        }
+
+        public List<Book> TopSellers;
+
+        public List<Book> Latest;
+
         public ICommand ToLogin { get; }
         public ICommand ToHistory { get; }
         public ICommand ToCart { get; }
         public ICommand ToHome { get; }
         public ICommand SearchCommand { get; }
 
-        public StoreViewModel(NavigationStore navigationStore)
+        public StoreViewModel(NavigationStore navigationStore,string username)
         {
             _storeNavigationStore = new NavigationStore();
             _storeNavigationStore.CurrentViewModel = new HomeViewModel(_storeNavigationStore);
@@ -47,6 +64,12 @@ namespace OBOS.ViewModels
             ToCart = new ToCart(_storeNavigationStore);
             SearchCommand = new SearchCommand(_storeNavigationStore);
             ToHome = new ToHome(_storeNavigationStore);
+
+            UserName = username;
+
+            shop = Shop.GetInstance();
+            TopSellers = shop.DisplayTopSellers().ToList();
+            Latest = shop.DisplayLatest().ToList();
         }
 
         private void OnCurrentViewModelChanged()

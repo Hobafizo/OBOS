@@ -30,9 +30,26 @@ namespace OBOS.Views
         {
             if (DataContext != null)
             {
+                if(((dynamic)DataContext).SearchResult.Count == 0)
+                {
+                    NoResult.Visibility = Visibility.Visible;
+                    return;
+                }
+
+                int x = 20, y = 20;
+
                 foreach (var item in ((dynamic)DataContext).SearchResult)
                 {
-
+                    BookView book = new BookView();
+                    Canvas.Children.Add(book);
+                    Canvas.SetLeft(book, x);
+                    Canvas.SetTop(book, y);
+                    x += 236;
+                    if(x>1000)
+                    {
+                        x = 20;
+                        y += 236;
+                    }
                 }
             }
         }

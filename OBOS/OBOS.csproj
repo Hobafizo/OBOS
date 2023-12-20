@@ -90,6 +90,7 @@
     <Compile Include="Database\Settings.cs" />
     <Compile Include="Stores\NavigationStore.cs" />
     <Compile Include="ViewModels\AdminViewModel.cs" />
+    <Compile Include="ViewModels\BookViewModel.cs" />
     <Compile Include="ViewModels\CartViewModel.cs" />
     <Compile Include="ViewModels\HistoryViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
@@ -101,6 +102,9 @@
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\AdminView.xaml.cs">
       <DependentUpon>AdminView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BookView.xaml.cs">
+      <DependentUpon>BookView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CartView.xaml.cs">
       <DependentUpon>CartView.xaml</DependentUpon>
@@ -138,6 +142,10 @@
     <Page Include="Views\AdminView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BookView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CartView.xaml">
       <SubType>Designer</SubType>
