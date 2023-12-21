@@ -44,15 +44,14 @@ namespace OBOS.Models.Store
 
 		public IEnumerable<Book> DisplayCategory(Category category)
 		{
-			//return Books.Where(c => c.Category.equals(category));
-			return null;
+            return Books.Where(c => c.Categories.Contains(category));
 		}
 
         public IEnumerable<Book> DisplayLatest()
         {
             int count = 0;
             IEnumerable<Book> books = new List<Book>();
-            for (int i = Books.Count - 1; count < 5; i--)
+            for (int i = Books.Count - 1; count < 5&& i>=0; i--)
             {
                 count++;
                 books.ToList().Add(Books[i]);

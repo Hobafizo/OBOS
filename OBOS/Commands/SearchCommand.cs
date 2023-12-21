@@ -28,7 +28,6 @@ namespace OBOS.Commands
                 _navigationStore.CurrentViewModel = new HomeViewModel(_navigationStore);
             else
             {
-
                 Result = Shop.Books.Where(c => c.Name.Contains((string)parameter)).ToList();
                 _navigationStore.CurrentViewModel = new SearchViewModel(Result,_navigationStore);
             }

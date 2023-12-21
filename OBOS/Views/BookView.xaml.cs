@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OBOS.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,10 @@ namespace OBOS.Views
     /// </summary>
     public partial class BookView : UserControl
     {
-        public BookView()
+        public BookView(BookViewModel viewModel)
         {
             InitializeComponent();
+            DataContext = viewModel;
         }
     }
 }

@@ -40,7 +40,8 @@ namespace OBOS.Views
 
                 foreach (var item in ((dynamic)DataContext).SearchResult)
                 {
-                    BookView book = new BookView();
+                    BookViewModel viewModel = new BookViewModel(item);
+                    BookView book = new BookView(viewModel);
                     Canvas.Children.Add(book);
                     Canvas.SetLeft(book, x);
                     Canvas.SetTop(book, y);

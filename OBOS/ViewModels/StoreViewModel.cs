@@ -12,7 +12,6 @@ namespace OBOS.ViewModels
 {
     public class StoreViewModel : ViewModelBase
     {
-        private readonly Shop shop;
         private readonly NavigationStore _storeNavigationStore;
         public ViewModelBase StoreCurrentViewModel => _storeNavigationStore.CurrentViewModel;
 
@@ -42,10 +41,6 @@ namespace OBOS.ViewModels
             }
         }
 
-        public List<Book> TopSellers;
-
-        public List<Book> Latest;
-
         public ICommand ToLogin { get; }
         public ICommand ToHistory { get; }
         public ICommand ToCart { get; }
@@ -66,10 +61,6 @@ namespace OBOS.ViewModels
             ToHome = new ToHome(_storeNavigationStore);
 
             UserName = username;
-
-            shop = Shop.GetInstance();
-            TopSellers = shop.DisplayTopSellers().ToList();
-            Latest = shop.DisplayLatest().ToList();
         }
 
         private void OnCurrentViewModelChanged()
