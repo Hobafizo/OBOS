@@ -15,10 +15,12 @@
                 <RowDefinition Height="100"/>
                 <RowDefinition Height="10"/>
                 <RowDefinition Height="90"/>
-                <RowDefinition Height="165"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="140"/>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="90"/>
-                <RowDefinition Height="155"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="135"/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
@@ -97,7 +99,7 @@
                 </Separator>
             </Grid>
 
-            <Grid Grid.Row="4">
+            <Grid Grid.Row="5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
@@ -112,12 +114,30 @@
 
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="420"/>
+                    <ColumnDefinition Width="360"/>
+                    <ColumnDefinition Width="60"/>
                     <ColumnDefinition Width="70"/>
                     <ColumnDefinition Width="300"/>
                 </Grid.ColumnDefinitions>
 
-                <Image Grid.Column="1"
+                <Border Grid.Column="0"
+                    Background="#513408"
+                    CornerRadius="20"
+                    Width="110"
+                    Height="50"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+
+                    <Label Foreground="antiquewhite"
+                           FontWeight="Bold"
+                           FontSize="25"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Content="Create">
+                    </Label>
+                </Border>
+
+                <Image Grid.Column="2"
                        Source="../Media/Category.png"
                        Stretch="Uniform"
                        Height="70"
@@ -125,7 +145,7 @@
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"/>
 
-                <Label Grid.Column="2"
+                <Label Grid.Column="3"
                        Foreground="#513408"
                        FontWeight="Bold"
                        FontSize="50"
@@ -136,7 +156,7 @@
                 </Label>
             </Grid>
 
-            <Grid Grid.Row="3">
+            <Grid Grid.Row="4">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="360"/>
                     <ColumnDefinition Width="40"/>
@@ -146,29 +166,433 @@
                     <ColumnDefinition Width="360"/>
                 </Grid.ColumnDefinitions>
 
-                <Border Grid.Column="0" 
-                        BorderBrush="#513408" 
-                        BorderThickness="2" 
-                        CornerRadius="20"
-                        Width="110"
-                        Height="50"
-                        VerticalAlignment="Top">
+                <StackPanel Grid.Column="0" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Label Grid.Column="0"
+                               Foreground="#513408"
+                               FontWeight="Bold"
+                               FontSize="20"
+                               VerticalAlignment="Bottom"
+                               Margin="10"
+                               Content="Category name"/>
 
-                    <Label Foreground="#513408"
-                       FontWeight="Bold"
-                       FontSize="25"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       Content="Create">
-                    </Label>
-                </Border>
+                        <Button Grid.Column="1"
+                                Foreground="#513408"
+                                Background="Transparent"
+                                BorderBrush="#513408"
+                                BorderThickness="2"
+                                Width="40"
+                                Height="40"
+                                HorizontalAlignment="Right"
+                                Margin="0,0,10,0">
 
-                <StackPanel Grid.Column="0"
+                            <Button.Resources>
+                                <Style TargetType="Button">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border Background="{TemplateBinding Background}"
+                                                        CornerRadius="10"
+                                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                                        Name="Border">
+
+                                                    <TextBlock Foreground="#513408"
+                                                               FontWeight="ExtraBold"
+                                                               FontSize="36"
+                                                               HorizontalAlignment="Center"
+                                                               VerticalAlignment="Center"
+                                                               Margin="0,0,0,8"
+                                                               Name="Text"
+                                                               Text="+"/>
+                                                </Border>
+
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter TargetName="Border" Property="Background" Value="#513408"/>
+                                                        <Setter Property="Cursor" Value="Hand"/>
+                                                        <Setter TargetName="Border" Property="BorderThickness" Value="0"/>
+                                                        <Setter TargetName="Text" Property="Foreground" Value="antiquewhite"/>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                    </Grid>
+
+                    <TextBox BorderThickness="2"
+                             Height="30"
+                             Margin="10,0,0,0"
+                             Foreground="#513408"
+                             FontSize="20"
+                             BorderBrush="#513408"
+                             Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}">
+
+                        <TextBox.Template>
+                            <ControlTemplate TargetType="{x:Type TextBox}">
+                                <Border Background="{TemplateBinding Background}" 
+                                        BorderBrush="#513408" 
+                                        BorderThickness="{TemplateBinding BorderThickness}" 
+                                        CornerRadius="7">
+                                    <ScrollViewer x:Name="PART_ContentHost"
+                              VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </TextBox.Template>
+                    </TextBox>
+
+                    <Button Grid.Column="1"
+        Foreground="#513408"
+        Background="Transparent"
+        BorderBrush="#513408"
+        BorderThickness="2"
+        Width="40"
+        Height="40"
+        HorizontalAlignment="Right"
+        Margin="0,0,10,0">
+
+                        <Button.Resources>
+                            <Style TargetType="Button">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}"
+                                CornerRadius="10"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                Name="Border">
+
+                                                <TextBlock Foreground="#513408"
+                                       FontWeight="ExtraBold"
+                                       FontSize="36"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Margin="0,0,0,8"
+                                       Name="Text"
+                                       Text="+"/>
+                                            </Border>
+
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="Border" Property="Background" Value="#513408"/>
+                                                    <Setter Property="Cursor" Value="Hand"/>
+                                                    <Setter TargetName="Border" Property="BorderThickness" Value="0"/>
+                                                    <Setter TargetName="Text" Property="Foreground" Value="antiquewhite"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1"
                             Orientation="Horizontal"
-                            HorizontalAlignment="Right">
+                            Margin="20,0,0,0">
 
                     <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"
                                Background="#513408">
+                        <Separator.RenderTransform>
+                            <ScaleTransform ScaleX="3" />
+                        </Separator.RenderTransform>
+                    </Separator>
+                </StackPanel>
+
+                <Button Grid.Column="2"
+                        Name="LeftCategory"
+                        Margin="15,0,15,0">
+                    <Button.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Image Source="../Media/Left_Arrow.png"
+                                               Stretch="Uniform"
+                                               Cursor="Hand"
+                                               HorizontalAlignment="{TemplateBinding HorizontalAlignment}"/>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Image Source="../Media/Left_Arrow_Hover.png"
+                                                       Stretch="Uniform"
+                                                       Cursor="Hand"
+                                                       HorizontalAlignment="{TemplateBinding HorizontalAlignment}"/>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Image Source="../Media/Left_Arrow_Click.png"
+                                                       Stretch="Uniform"
+                                                       Cursor="Hand"
+                                                       HorizontalAlignment="{TemplateBinding HorizontalAlignment}"/>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button Grid.Column="4"
+                        Name="RightCategory"
+                        Margin="15,0,15,0">
+                    <Button.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Image Source="../Media/Right_Arrow.png"
+                                               Stretch="Uniform"
+                                               Cursor="Hand"
+                                               HorizontalAlignment="{TemplateBinding HorizontalAlignment}"/>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Image Source="../Media/Right_Arrow_Hover.png"
+                                                       Stretch="Uniform"
+                                                       Cursor="Hand"
+                                                       HorizontalAlignment="{TemplateBinding HorizontalAlignment}"/>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Image Source="../Media/Right_Arrow_Click.png"
+                                                       Stretch="Uniform"
+                                                       Cursor="Hand"
+                                                       HorizontalAlignment="{TemplateBinding HorizontalAlignment}"/>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Border Grid.Column="3" 
+                        BorderBrush="#513408" 
+                        BorderThickness="2" 
+                        CornerRadius="20">
+
+                    <TextBlock Foreground="#513408"
+                           FontWeight="Bold"
+                           FontSize="25"
+                           Height="auto"
+                           Width="auto"
+                           MaxWidth="200"
+                           TextWrapping="Wrap"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           TextAlignment="Center"
+                           Text="Category Name">
+                    </TextBlock>
+                </Border>
+
+                <Button Grid.Column="5"
+                        Foreground="#513408"
+                        Background="Transparent"
+                        BorderBrush="#513408"
+                        BorderThickness="2"
+                        Width="200"
+                        Height="50">
+
+                    <Button.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}"
+                                CornerRadius="10"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                Name="Border">
+
+                                            <TextBlock Foreground="#513408"
+                                       FontWeight="Bold"
+                                       FontSize="25"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Name="Text"
+                                       Text="Delete"/>
+                                        </Border>
+
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="Border" Property="Background" Value="#513408"/>
+                                                <Setter Property="Cursor" Value="Hand"/>
+                                                <Setter TargetName="Border" Property="BorderThickness" Value="0"/>
+                                                <Setter TargetName="Text" Property="Foreground" Value="antiquewhite"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+            </Grid>
+
+            <Grid Grid.Row="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="480"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="15"/>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="45"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="1"
+                       Source="../Media/Book.png"
+                       Stretch="Uniform"
+                       Height="80"
+                       Cursor="Hand"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"/>
+
+                <Label Grid.Column="3"
+                       Foreground="#513408"
+                       FontWeight="Bold"
+                       FontSize="50"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Content="Books">
+                </Label>
+
+                <Border Grid.Column="5" 
+                        Background="#513408"
+                        CornerRadius="20"
+                        Width="200"
+                        Height="50"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+
+                    <Label Foreground="antiquewhite"
+                           FontWeight="Bold"
+                           FontSize="25"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Content="Update Status">
+                    </Label>
+                </Border>
+            </Grid>
+
+            <Grid Grid.Row="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="360"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="109"/>
+                    <ColumnDefinition Width="222"/>
+                    <ColumnDefinition Width="109"/>
+                    <ColumnDefinition Width="360"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0"
+                        Foreground="#513408"
+                        Background="Transparent"
+                        Width="300"
+                        BorderBrush="#513408"
+                        BorderThickness="2">
+
+                    <Button.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}"
+                                                CornerRadius="20"
+                                                BorderThickness="{TemplateBinding BorderThickness}"
+                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                Name="Border">
+                                            
+                                            <StackPanel Orientation="Horizontal"
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center">
+                                                
+                                                <TextBlock Foreground="#513408"
+                                                           FontWeight="Bold"
+                                                           FontSize="50"
+                                                           HorizontalAlignment="Center"
+                                                           VerticalAlignment="Center"
+                                                           Name="Icon"
+                                                           Text="📘"/>
+                                                
+                                                <TextBlock Foreground="#513408"
+                                                           FontWeight="Bold"
+                                                           FontSize="25"
+                                                           Height="auto"
+                                                           Width="auto"
+                                                           MaxWidth="150"
+                                                           TextWrapping="Wrap"
+                                                           Margin="15,0,0,0"
+                                                           HorizontalAlignment="Center"
+                                                           VerticalAlignment="Center"
+                                                           TextAlignment="Center"
+                                                           Name="Text"
+                                                           Text="Add New Book"/>
+                                            </StackPanel>
+                                        </Border>
+
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="Border" Property="Background" Value="#513408"/>
+                                                <Setter Property="Cursor" Value="Hand"/>
+                                                <Setter TargetName="Border" Property="BorderThickness" Value="0"/>
+                                                <Setter TargetName="Icon" Property="Foreground" Value="antiquewhite"/>
+                                                <Setter TargetName="Text" Property="Foreground" Value="antiquewhite"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <StackPanel Grid.Column="1"
+                            Orientation="Horizontal"
+                            Margin="20,0,0,0">
+
+                    <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"
+                                Background="#513408">
                         <Separator.RenderTransform>
                             <ScaleTransform ScaleX="3" />
                         </Separator.RenderTransform>
@@ -271,53 +695,25 @@
 
                 <Border Grid.Column="3">
                     <Image Source="../Media/Book_Page.png"/>
-
-                    
                 </Border>
 
-                <Border Grid.Column="5" 
-                        BorderBrush="#513408" 
-                        BorderThickness="2" 
-                        CornerRadius="20"
-                        Width="110"
-                        Height="50"
-                        VerticalAlignment="Top">
+                <TextBlock Grid.Column="3"
+                    Foreground="#513408"
+                    FontWeight="Bold"
+                    FontSize="25"
+                    Height="auto"
+                    Width="auto"
+                    MaxWidth="130"
+                    TextWrapping="Wrap"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Margin="0,0,0,20"
+                    TextAlignment="Center"
+                    Text="Book Name">
+                </TextBlock>
 
-                    <Label Foreground="#513408"
-                           FontWeight="Bold"
-                           FontSize="25"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           Content="Delete">
-                    </Label>
-                </Border>
+                
 
-            </Grid>
-
-            <Grid Grid.Row="5">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="460"/>
-                    <ColumnDefinition Width="70"/>
-                    <ColumnDefinition Width="300"/>
-                </Grid.ColumnDefinitions>
-
-                <Image Grid.Column="1"
-                       Source="../Media/Book.png"
-                       Stretch="Uniform"
-                       Height="80"
-                       Cursor="Hand"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Center"/>
-
-                <Label Grid.Column="2"
-                       Foreground="#513408"
-                       FontWeight="Bold"
-                       FontSize="50"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Center"
-                       Content="Books"
-                       Margin="15,0,0,5">
-                </Label>
             </Grid>
         </Grid>
         

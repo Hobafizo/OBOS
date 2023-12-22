@@ -10,7 +10,7 @@ namespace OBOS.Models.Users
 	public class Admin : User
 	{
 		// <<<< Attributes here >>>>
-		Shop shop;
+		private Shop shop;
         public static Stack<Notification> Notifications = new Stack<Notification>();
 
         public Admin()
