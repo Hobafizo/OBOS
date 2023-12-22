@@ -30,11 +30,7 @@ namespace OBOS.Views
         {
             if (DataContext != null)
             {
-                if(((dynamic)DataContext).SearchResult.Count == 0)
-                {
-                    NoResult.Visibility = Visibility.Visible;
-                    return;
-                }
+                NoResult.Visibility = Visibility.Collapsed;
 
                 int x = 20, y = 20;
 
@@ -46,11 +42,17 @@ namespace OBOS.Views
                     Canvas.SetLeft(book, x);
                     Canvas.SetTop(book, y);
                     x += 236;
-                    if(x>1000)
+                    if (x > 1000)
                     {
                         x = 20;
                         y += 236;
                     }
+                }
+
+                if (Canvas.Children.Count == 0)
+                {
+                    NoResult.Visibility = Visibility.Visible;
+                    return;
                 }
             }
         }

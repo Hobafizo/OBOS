@@ -26,7 +26,7 @@ namespace OBOS.ViewModels
             {
                 _search = value;
                 OnPropertyChanged(nameof(Search));
-                SearchCommand.Execute(Search);
+                SearchCommand.Execute(Search, Filters);
             } 
         }
 
@@ -37,7 +37,21 @@ namespace OBOS.ViewModels
             set
             {
                 _username = value;
-                OnPropertyChanged(UserName);
+                OnPropertyChanged(nameof(UserName));
+            }
+        }
+
+        public List<Category> Categories { get; }
+
+        private List<string> _filters;
+        public List<string> Filters
+        {
+            get => _filters;
+            set
+            {
+                _filters = value;
+                OnPropertyChanged(nameof(Filters));
+                SearchCommand.Execute(Search, Filters);
             }
         }
 
@@ -45,7 +59,7 @@ namespace OBOS.ViewModels
         public ICommand ToHistory { get; }
         public ICommand ToCart { get; }
         public ICommand ToHome { get; }
-        public ICommand SearchCommand { get; }
+        public SearchCommand SearchCommand { get; }
 
         public StoreViewModel(NavigationStore navigationStore,string username)
         {
@@ -61,6 +75,8 @@ namespace OBOS.ViewModels
             ToHome = new ToHome(_storeNavigationStore);
 
             UserName = username;
+
+            Categories = Shop.GetInstance().Categories;
         }
 
         private void OnCurrentViewModelChanged()

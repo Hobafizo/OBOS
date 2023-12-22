@@ -51,7 +51,7 @@ namespace OBOS.Models.Store
         {
             int count = 0;
             IEnumerable<Book> books = new List<Book>();
-            for (int i = Books.Count - 1; count < 5&& i>=0; i--)
+            for (int i = Books.Count - 1; count < 5 && i >= 0; i--)
             {
                 count++;
                 books.ToList().Add(Books[i]);

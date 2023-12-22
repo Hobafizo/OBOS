@@ -24,13 +24,44 @@ namespace OBOS.Commands
 
         public override void Execute(object parameter)
         {
-            if ((string)parameter == "")
+            
+        }
+
+        public void Execute(object parameter1, object parameter2)
+        {
+            if (string.IsNullOrEmpty((string)parameter1) && ((List<string>)parameter2 == null || ((List<string>)parameter2).Count == 0))
+            {
                 _navigationStore.CurrentViewModel = new HomeViewModel(_navigationStore);
+                return;
+            }
+            else if (string.IsNullOrEmpty((string)parameter1))
+            {
+                if (((List<string>)parameter2).Count == 1 && ((List<string>)parameter2)[0] == "All")
+                {
+                    Result = Shop.Books;
+                }
+                else
+                {
+                    foreach (var item in (List<string>)parameter2)
+                    {
+                        Result = Shop.Books.Where(x => x.CategoryNames.Contains(item)).ToList();
+                    }
+                }
+
+            }
+            else if ((List<string>)parameter2 == null || ((List<string>)parameter2).Count == 0)
+            {
+                Result = Shop.Books.Where(c => c.Name.Contains((string)parameter1)).ToList();
+            }
             else
             {
-                Result = Shop.Books.Where(c => c.Name.Contains((string)parameter)).ToList();
-                _navigationStore.CurrentViewModel = new SearchViewModel(Result,_navigationStore);
+                foreach (var item in (List<string>)parameter2)
+                {
+                    Result = Shop.Books.Where(x => x.CategoryNames.Contains(item) && x.Name == (string)parameter1).ToList();
+                }
             }
+
+            _navigationStore.CurrentViewModel = new SearchViewModel(Result, _navigationStore);
         }
     }
 }

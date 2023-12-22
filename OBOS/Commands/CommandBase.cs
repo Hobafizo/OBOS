@@ -22,5 +22,6 @@ namespace OBOS.Commands
         {
             CanExecuteChanged?.Invoke(this, new EventArgs());
         }
+
     }
 }
