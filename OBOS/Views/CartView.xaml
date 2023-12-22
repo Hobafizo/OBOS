@@ -7,6 +7,36 @@
              mc:Ignorable="d" 
              Height="460" Width="1200">
     <Grid>
-        <Label>Cart</Label>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="500"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label FontSize="50"
+               Foreground="#513408"
+               Content="Cart"
+               HorizontalAlignment="Center"/>
+
+        <Label FontSize="45"
+               Grid.Column="1"
+               Foreground="#513408"
+               Content="Pending Orders"
+               HorizontalAlignment="Center"/>
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="1"
+                    Name="Cart"
+                    Margin="20,5"/>
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Name="Pending"
+                    Margin="20,5"/>
+
     </Grid>
 </UserControl>

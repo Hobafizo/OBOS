@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="OBOS.Views.CartItemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:OBOS.Views"
+             mc:Ignorable="d" 
+             Height="150" Width="660">
+
+    <Border Background="LightGray"
+            CornerRadius="20"
+            BorderThickness="2"
+            BorderBrush="DimGray">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Border Width="120"
+                    Height="120"
+                    Background="AntiqueWhite"
+                    CornerRadius="10">
+            
+                <Image/>
+            
+            </Border>
+        </Grid>
+        
+    </Border>
+     
+</UserControl>

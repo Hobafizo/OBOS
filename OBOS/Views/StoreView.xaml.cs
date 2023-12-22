@@ -58,15 +58,22 @@ namespace OBOS.Views
 
         private void CategoryAdded(object sender, RoutedEventArgs e)
         {
-            if(((CheckBox)sender).ContentStringFormat == "All")
+            if (((CheckBox)sender).ContentStringFormat == "All")
             {
-                for(int i=1;i<Categories.Children.Count;i++)
+                for (int i = 1; i < Categories.Children.Count; i++)
                 {
                     ((CheckBox)Categories.Children[i]).IsChecked = false;
                     categories.Remove(((CheckBox)Categories.Children[i]).ContentStringFormat);
                 }
             }
-
+            else
+            {
+                All.Unchecked -= CategoryRemoved;
+                All.IsChecked = false;
+                All.Unchecked += CategoryRemoved;
+                categories.Remove(All.ContentStringFormat);
+            }
+            
             categories.Add(((CheckBox)sender).ContentStringFormat);
             ((dynamic)DataContext).Filters = categories;
         }
