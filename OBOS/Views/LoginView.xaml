@@ -139,7 +139,7 @@
                                                Padding="0"
                                                Margin="0,0"
                                                Cursor="Hand">
-                                            SignUp
+                                            Sign Up
                                         </Label>
                                     </ControlTemplate>
                                 </Setter.Value>
