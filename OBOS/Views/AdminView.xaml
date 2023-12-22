@@ -11,7 +11,314 @@
             CornerRadius="20">
         
         <Grid>
-            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="165"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="155"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="3"
+                        Margin="200,0,0,0"
+                        HorizontalAlignment="Center"
+                        Cursor="Hand"
+                        Command="{Binding ToHome}">
+                    <Button.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Label Foreground="#513408"
+                                               FontWeight="Bold"
+                                               FontSize="60"
+                                               Content="Bookstore"/>
+
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button Grid.Column="5"
+                        Margin="30"
+                        Command="{Binding ToLogin}">
+                    <Button.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Image Source="../Media/Logout.png" 
+                                               Stretch="Uniform" Grid.Column="1"
+                                               Height="100" Cursor="Hand"
+                                               HorizontalAlignment="{TemplateBinding HorizontalAlignment}"/>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Label Grid.Column="4"
+                       Foreground="#513408"
+                       FontSize="30"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Content="{Binding UserName}">
+                </Label>
+
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+                <Separator Background="#513408"
+                           VerticalAlignment="Top"
+                           Margin="0,0,0,0">
+                    <Separator.RenderTransform>
+                        <ScaleTransform ScaleY="3" />
+                    </Separator.RenderTransform>
+                </Separator>
+            </Grid>
+
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Separator Background="#513408"
+                           Margin="0,0,0,14">
+                    <Separator.RenderTransform>
+                        <ScaleTransform ScaleY="3" />
+                    </Separator.RenderTransform>
+                </Separator>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="420"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="300"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="1"
+                       Source="../Media/Category.png"
+                       Stretch="Uniform"
+                       Height="70"
+                       Cursor="Hand"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"/>
+
+                <Label Grid.Column="2"
+                       Foreground="#513408"
+                       FontWeight="Bold"
+                       FontSize="50"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Content="Categories"
+                       Margin="15,0,0,5">
+                </Label>
+            </Grid>
+
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="360"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="109"/>
+                    <ColumnDefinition Width="222"/>
+                    <ColumnDefinition Width="109"/>
+                    <ColumnDefinition Width="360"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" 
+                        BorderBrush="#513408" 
+                        BorderThickness="2" 
+                        CornerRadius="20"
+                        Width="110"
+                        Height="50"
+                        VerticalAlignment="Top">
+
+                    <Label Foreground="#513408"
+                       FontWeight="Bold"
+                       FontSize="25"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Content="Create">
+                    </Label>
+                </Border>
+
+                <StackPanel Grid.Column="0"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Right">
+
+                    <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}"
+                               Background="#513408">
+                        <Separator.RenderTransform>
+                            <ScaleTransform ScaleX="3" />
+                        </Separator.RenderTransform>
+                    </Separator>
+                </StackPanel>
+
+                <Button Grid.Column="2"
+                        Name="LeftBook"
+                        Margin="15,0,15,0">
+                    <Button.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Image Source="../Media/Left_Arrow.png"
+                                               Stretch="Uniform"
+                                               Cursor="Hand"
+                                               HorizontalAlignment="{TemplateBinding HorizontalAlignment}"/>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Image Source="../Media/Left_Arrow_Hover.png"
+                                                       Stretch="Uniform"
+                                                       Cursor="Hand"
+                                                       HorizontalAlignment="{TemplateBinding HorizontalAlignment}"/>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Image Source="../Media/Left_Arrow_Click.png"
+                                                       Stretch="Uniform"
+                                                       Cursor="Hand"
+                                                       HorizontalAlignment="{TemplateBinding HorizontalAlignment}"/>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button Grid.Column="4"
+                        Name="RightBook"
+                        Margin="15,0,15,0">
+                    <Button.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Image Source="../Media/Right_Arrow.png"
+                                               Stretch="Uniform"
+                                               Cursor="Hand"
+                                               HorizontalAlignment="{TemplateBinding HorizontalAlignment}"/>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Image Source="../Media/Right_Arrow_Hover.png"
+                                                       Stretch="Uniform"
+                                                       Cursor="Hand"
+                                                       HorizontalAlignment="{TemplateBinding HorizontalAlignment}"/>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Image Source="../Media/Right_Arrow_Click.png"
+                                                       Stretch="Uniform"
+                                                       Cursor="Hand"
+                                                       HorizontalAlignment="{TemplateBinding HorizontalAlignment}"/>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Border Grid.Column="3">
+                    <Image Source="../Media/Book_Page.png"/>
+
+                    
+                </Border>
+
+                <Border Grid.Column="5" 
+                        BorderBrush="#513408" 
+                        BorderThickness="2" 
+                        CornerRadius="20"
+                        Width="110"
+                        Height="50"
+                        VerticalAlignment="Top">
+
+                    <Label Foreground="#513408"
+                           FontWeight="Bold"
+                           FontSize="25"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Content="Delete">
+                    </Label>
+                </Border>
+
+            </Grid>
+
+            <Grid Grid.Row="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="460"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="300"/>
+                </Grid.ColumnDefinitions>
+
+                <Image Grid.Column="1"
+                       Source="../Media/Book.png"
+                       Stretch="Uniform"
+                       Height="80"
+                       Cursor="Hand"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"/>
+
+                <Label Grid.Column="2"
+                       Foreground="#513408"
+                       FontWeight="Bold"
+                       FontSize="50"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Content="Books"
+                       Margin="15,0,0,5">
+                </Label>
+            </Grid>
         </Grid>
         
     </Border>
