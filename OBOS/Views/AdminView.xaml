@@ -258,7 +258,7 @@
         Width="40"
         Height="40"
         HorizontalAlignment="Right"
-        Margin="0,0,10,0">
+        Margin="0,0,11,0">
 
                         <Button.Resources>
                             <Style TargetType="Button">
