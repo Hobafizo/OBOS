@@ -5,15 +5,187 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:OBOS.Views"
              mc:Ignorable="d" 
-             Height="216" Width="216">
-    <Border Background="White"
-            CornerRadius="10">
+             Height="218" Width="218">
+
+    <Border Background="AntiqueWhite"
+            CornerRadius="10"
+            BorderThickness="2"
+            BorderBrush="#513408">
         <StackPanel Orientation="Vertical">
-            <Image Name="Cover" Width="100" Height="100"/>
-            <TextBlock Name="Title"/>
-            <Button> Add to cart</Button>
-            <TextBox Name="Count"/>
+            <Border Height="70" Width="70" Margin="0,5"
+                    CornerRadius="5"
+                    Background="AntiqueWhite">
+                <Image Source="../Media/Book.png"  Stretch="Uniform"
+                       Margin="5"/>
+            </Border>
+
+            <TextBlock Text="{Binding Book.Name}"
+                       FontSize="20"
+                       Margin="0,0,0,5"
+                       Foreground="#513408"
+                       HorizontalAlignment="Center"/>
+
+            <StackPanel Orientation="Vertical"
+                        Margin="10,7">
+
+                <CheckBox Content="Book of the year"
+                          FontSize="10"
+                          FontWeight="Bold"
+                          Foreground="#513408"
+                          IsChecked="{Binding Special}"/>
+
+                <CheckBox Content="Bookmark"
+                          FontSize="10"
+                          FontWeight="Bold"
+                          Foreground="#513408"
+                          IsChecked="{Binding Bookmark}"/>
+
+                <CheckBox Content="Gift wrap"
+                          FontSize="10"
+                          FontWeight="Bold"
+                          Foreground="#513408"
+                          IsChecked="{Binding Gift}"/>
+
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal"
+                        Margin="10,0"
+                        HorizontalAlignment="Center">
+                <Button Command="{Binding AddToCart}"
+                        Click="Button_Click">
+                    <Button.Resources>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Name="Border"
+                                            CornerRadius="15,0,0,15"
+                                            Background="ForestGreen"
+                                            BorderBrush="ForestGreen"
+                                            BorderThickness="0"
+                                                Height="30"
+                                                Width="130">
+
+                                            <Label Name="text"
+                                               FontSize="15"
+                                               FontWeight="Bold"
+                                               Foreground="White"
+                                               HorizontalAlignment="Center"
+                                               Content="Add to cart"/>
+
+                                        </Border>
+
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsEnabled" Value="False">
+                                                <Setter TargetName="Border" Property="Background" Value="transparent"/>
+                                                <Setter TargetName="Border" Property="BorderThickness" Value="2"/>
+                                            </Trigger>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="Border" Property="Background" Value="#44AD44"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Resources>
+
+                </Button>
+
+                <TextBox Name="Count"
+                         Width="30"
+                         Text="1"
+                         FontSize="20"
+                         Height="30"
+                         HorizontalContentAlignment="Center"
+                         IsReadOnly="True"
+                         Foreground="#513408"
+                         BorderBrush="ForestGreen"
+                         TextChanged="Count_TextChanged"
+                         Cursor="Arrow"/>
+
+                <StackPanel>
+                    <Button Name="Increment"
+                            Click="Increment_Click">
+                        <Button.Resources>
+                            <Style TargetType="Button">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Name="Border"
+                                                    Height="15"
+                                                    CornerRadius="0,15,0,0"
+                                                    Background="ForestGreen"
+                                                    BorderBrush="ForestGreen"
+                                                    BorderThickness="0"
+                                                    Width="25">
+
+                                                <Label Content="+"
+                                                       Padding="0.1"
+                                                       FontSize="12"
+                                                       HorizontalAlignment="Center"
+                                                       Foreground="White"/>
+                                            </Border>
+
+
+
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="Border" Property="Background" Value="#44AD44"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Resources>
+
+                    </Button>
+                    <Button Name="Decrement"
+                            Click="Decrement_Click">
+                        <Button.Resources>
+                            <Style TargetType="Button">
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Name="Border"
+                                                    Height="15"
+                                                    CornerRadius="0,0,15,0"
+                                                    Background="ForestGreen"
+                                                    BorderBrush="ForestGreen"
+                                                    BorderThickness="0"
+                                                    Width="25">
+
+                                                <Label Content="-"
+                                                       Padding="0"
+                                                       FontSize="17"
+                                                       HorizontalAlignment="Center"
+                                                       Foreground="White" Margin="0,-7,0,7"/>
+                                            </Border>
+
+
+
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter TargetName="Border" Property="Background" Value="#44AD44"/>
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Resources>
+
+                    </Button>
+                </StackPanel>
+
+
+            </StackPanel>
 
         </StackPanel>
     </Border>
+
 </UserControl>

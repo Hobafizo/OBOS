@@ -43,5 +43,10 @@ namespace OBOS.Models.Store
             Book = book;
             Quantity = quantity;
         }
+
+        public float Total()
+        {
+            return Book.Cost() * Quantity;
+        }
     }
 }

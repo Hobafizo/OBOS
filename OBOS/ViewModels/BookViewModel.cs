@@ -1,9 +1,11 @@
-﻿using OBOS.Models.Store;
+﻿using OBOS.Commands;
+using OBOS.Models.Store;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace OBOS.ViewModels
 {
@@ -23,7 +25,32 @@ namespace OBOS.ViewModels
         public BookViewModel(Book book)
         {
             Book = book;
+            AddToCart = new AddToCart(this);
         }
 
+        private bool _Special = false;
+        public bool Special
+        {
+            get { return _Special; }
+            set { _Special = value; OnPropertyChanged(nameof(Special)); }
+        }
+
+        private bool _Bookmark = false;
+        public bool Bookmark
+        {
+            get { return _Bookmark; }
+            set { _Bookmark = value; OnPropertyChanged(nameof(Bookmark)); }
+        }
+
+        private bool _gift = false;
+        public bool Gift
+        {
+            get { return _gift; }
+            set { _gift = value; OnPropertyChanged(nameof(Gift)); }
+        }
+
+        public int Count { get; set; }
+
+        public ICommand AddToCart { get; }
     }
 }

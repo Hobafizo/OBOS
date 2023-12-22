@@ -21,10 +21,42 @@ namespace OBOS.Views
     /// </summary>
     public partial class BookView : UserControl
     {
+        int count;
         public BookView(BookViewModel viewModel)
         {
             InitializeComponent();
             DataContext = viewModel;
+            count = 1;
+        }
+
+        private void Decrement_Click(object sender, RoutedEventArgs e)
+        {
+            if (count > 1)
+            {
+                count--;
+                Count.Text = count.ToString();
+            }
+        }
+
+        private void Increment_Click(object sender, RoutedEventArgs e)
+        {
+            if (count <= ((BookViewModel)DataContext).Book.Stock)
+            {
+                count++;
+                Count.Text = count.ToString();
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            count = 1;
+            Count.Text = count.ToString();
+        }
+
+        private void Count_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (DataContext != null)
+                ((dynamic)DataContext).Count = count;
         }
     }
 }

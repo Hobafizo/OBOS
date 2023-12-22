@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:OBOS.Views"
              mc:Ignorable="d" 
-             Height="460" Width="1200">
+             Height="460" Width="1200"
+             DataContextChanged="UserControl_DataContextChanged">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -30,7 +31,69 @@
         <StackPanel Orientation="Vertical"
                     Grid.Row="1"
                     Name="Cart"
-                    Margin="20,5"/>
+                    Margin="20,5"
+                    CanVerticallyScroll="True"/>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <Button Grid.Row="1"
+                    Command="{Binding PlaceOrder}"
+                    Cursor="Hand"
+                    Name="Order">
+
+                <Button.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Name="Border"
+                                            Height="40"
+                                            CornerRadius="20"
+                                            Width="300"
+                                            Background="ForestGreen"
+                                            BorderBrush="ForestGreen"
+                                            BorderThickness="0">
+
+                                        <Label Name="text"
+                                               FontSize="25"
+                                               FontWeight="Bold"
+                                               Foreground="White"
+                                               HorizontalAlignment="Center"
+                                               Content="Place order"/>
+
+                                    </Border>
+
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter TargetName="Border" Property="Background" Value="transparent"/>
+                                            <Setter TargetName="Border" Property="BorderThickness" Value="2"/>
+                                        </Trigger>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="Border" Property="Background" Value="#44AD44"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                                
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Resources>
+                
+            </Button>
+
+            <Label Grid.Row="1"
+                   FontSize="20"
+                   Foreground="#513408"
+                   HorizontalAlignment="Left"
+                   Margin="20,0"/>
+
+
+
+        </Grid>
 
         <StackPanel Orientation="Vertical"
                     Grid.Column="1"

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OBOS.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,22 @@ namespace OBOS.Views
         public CartView()
         {
             InitializeComponent();
+        }
+
+        private void UserControl_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if(DataContext != null)
+            {
+                foreach(var item in ((dynamic)DataContext).Cart)
+                {
+                    Cart.Children.Add(new CartItemView(new CartItemViewModel(item)) { Margin = new Thickness(0, 0, 0, 10) });
+                }
+
+                if(((dynamic)DataContext).Cart.Count==0)
+                {
+                    Order.IsEnabled = false;
+                }
+            }
         }
     }
 }
