@@ -232,5 +232,24 @@
     <Resource Include="Media\History.png" />
     <Resource Include="Media\Logout.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\Category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\Book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\Left_Arrow.png" />
+    <Resource Include="Media\Right_Arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\Left_Arrow_Click.png" />
+    <Resource Include="Media\Left_Arrow_Hover.png" />
+    <Resource Include="Media\Right_Arrow_Click.png" />
+    <Resource Include="Media\Right_Arrow_Hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Media\Book_Page.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -61,7 +61,7 @@ namespace OBOS.ViewModels
         public ICommand ToHome { get; }
         public SearchCommand SearchCommand { get; }
 
-        public StoreViewModel(NavigationStore navigationStore,string username)
+        public StoreViewModel(NavigationStore navigationStore, string username)
         {
             _storeNavigationStore = new NavigationStore();
             _storeNavigationStore.CurrentViewModel = new HomeViewModel(_storeNavigationStore);

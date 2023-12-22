@@ -39,8 +39,11 @@ namespace OBOS.Commands
 		public override void Execute(object parameter)
 		{
 			User user = Login(loginViewModel.Username, loginViewModel.Password);
-			ICommand cmd = user.GetType() == typeof(Admin) ? ToAdmin : ToStore;
-			cmd.Execute(user.UserName);
+			if (user != null)
+			{
+				ICommand cmd = user.GetType() == typeof(Admin) ? ToAdmin : ToStore;
+				cmd.Execute(user.UserName);
+			}
 		}
 
 		public override bool CanExecute(object parameter)
@@ -54,8 +57,7 @@ namespace OBOS.Commands
 		{
 			foreach (var user in shop.Users)
 			{
-
-				if (username == user.UserName && user.Password == pw)
+				if (username.Equals(user.UserName, StringComparison.OrdinalIgnoreCase) && user.Password.Equals(pw))
 				{
 					shop.CurrentUser = user;
 					return user;

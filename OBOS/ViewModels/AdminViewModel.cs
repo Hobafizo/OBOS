@@ -14,18 +14,14 @@ namespace OBOS.ViewModels
 		private readonly NavigationStore _adminNavigationStore;
 		public ViewModelBase CurrentViewModel => _adminNavigationStore.CurrentViewModel;
 
-		private string _search;
-		public string Search
+		private string _username;
+		public string UserName
 		{
-			get
-			{
-				return _search;
-			}
+			get { return _username; }
 			set
 			{
-				_search = value;
-				OnPropertyChanged(nameof(Search));
-				SearchCommand.Execute(Search);
+				_username = value;
+				OnPropertyChanged(nameof(UserName));
 			}
 		}
 
@@ -35,11 +31,10 @@ namespace OBOS.ViewModels
 		public ICommand ToHome { get; }
 		public ICommand SearchCommand { get; }
 
-		public AdminViewModel(NavigationStore navigationStore)
+		public AdminViewModel(NavigationStore navigationStore, string username)
 		{
 			_adminNavigationStore = new NavigationStore();
 			_adminNavigationStore.CurrentViewModel = new HomeViewModel(_adminNavigationStore);
-
 			_adminNavigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
 
 			ToLogin = new ToLogin(navigationStore);
@@ -47,6 +42,8 @@ namespace OBOS.ViewModels
 			ToCart = new ToCart(_adminNavigationStore);
 			SearchCommand = new SearchCommand(_adminNavigationStore);
 			ToHome = new ToHome(_adminNavigationStore);
+
+			UserName = username;
 		}
 
 		private void OnCurrentViewModelChanged()
