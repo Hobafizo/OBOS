@@ -39,7 +39,7 @@ namespace OBOS.Views
                 {
                     foreach (var item in ((dynamic)DataContext).Cart)
                     {
-                        CartItemView view = new CartItemView(new CartItemViewModel(item) /*{ Margin = new Thickness(0, 0, 0, 10) }*/);
+                        CartItemView view = new CartItemView(new CartItemViewModel(item)) { Margin = new Thickness(0, 0, 0, 10) };
                         view.Clicked += Remove_Click;
                         Cart.Children.Add(view);
 
