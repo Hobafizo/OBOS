@@ -10,5 +10,10 @@ namespace OBOS.Models.Users
 	{
         public string Message { get; set; }
         public DateTime Time { get; set; }
+
+		bool IsApproved { get; set; }
+
+
+
 	}
 }
