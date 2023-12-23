@@ -89,5 +89,16 @@ namespace OBOS.Views
         {
             SearchBox.Clear();
         }
+
+        private void HomeBtn_Click(object sender, RoutedEventArgs e)
+        {
+            for(int i = 0; i < Categories.Children.Count; i++)
+            {
+                ((CheckBox)Categories.Children[i]).Unchecked -= CategoryRemoved;
+                ((CheckBox)Categories.Children[i]).IsChecked = false;
+                ((CheckBox)Categories.Children[i]).Unchecked += CategoryRemoved;
+            }
+            
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OBOS.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,17 @@ namespace OBOS.Views
         public HistoryView()
         {
             InitializeComponent();
+        }
+
+        private void UserControl_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if(DataContext!= null)
+            {
+                foreach(var item in ((HistoryViewModel)DataContext).OrderHistory)
+                {
+                    History.Children.Add(new OrderView(item.Id.ToString(), item.Date.ToString(), item.TotalCost().ToString()));
+                }
+            }
         }
     }
 }

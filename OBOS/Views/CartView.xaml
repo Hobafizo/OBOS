@@ -85,7 +85,8 @@
                    FontSize="20"
                    Foreground="#513408"
                    HorizontalAlignment="Left"
-                   Margin="20,0"/>
+                   Margin="20,0"
+                   Name="Total"/>
 
         </Grid>
 

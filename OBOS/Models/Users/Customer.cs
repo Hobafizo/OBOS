@@ -83,7 +83,7 @@ namespace OBOS.Models.Users
 		}
 		
 
-		public bool PlaceOrder(IPaymentStartegy method)
+        public bool PlaceOrder(IPaymentStartegy method)
 		{
             
             float TP = order.TotalCost();
@@ -115,6 +115,16 @@ namespace OBOS.Models.Users
             }
             return false;
 
+        }
+
+        public float CartTotal()
+        {
+            float total = 0;
+            foreach(var item in Cart)
+            {
+                total += item.Total();
+            }
+            return total;
         }
 
         public void AddReview(Book book, int rating, string message)

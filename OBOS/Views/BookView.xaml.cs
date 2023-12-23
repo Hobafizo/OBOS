@@ -27,6 +27,7 @@ namespace OBOS.Views
             InitializeComponent();
             DataContext = viewModel;
             count = 1;
+            Price.Content = "EGP: " + (((BookViewModel)DataContext).Book.Price * count).ToString();
         }
 
         private void Decrement_Click(object sender, RoutedEventArgs e)
@@ -35,6 +36,7 @@ namespace OBOS.Views
             {
                 count--;
                 Count.Text = count.ToString();
+                Price.Content = "EGP: " + (((BookViewModel)DataContext).Book.Price * count).ToString();
             }
         }
 
@@ -43,6 +45,7 @@ namespace OBOS.Views
             if (count <= ((BookViewModel)DataContext).Book.Stock)
             {
                 count++;
+                Price.Content = "EGP: " + (((BookViewModel)DataContext).Book.Price * count).ToString();
                 Count.Text = count.ToString();
             }
         }
@@ -59,7 +62,24 @@ namespace OBOS.Views
             ((dynamic)DataContext).Count = count;
             
             Count.Text = count.ToString();
+        }
 
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            float x = 0;
+            if (((CheckBox)sender).ContentStringFormat == "Book of the year")
+                x += 50;
+            if (((CheckBox)sender).ContentStringFormat == "Gift wrap")
+                x += 60;
+            if (((CheckBox)sender).ContentStringFormat == "Bookmark")
+                x += 20;
+            Price.Content = "EGP: " + ((((BookViewModel)DataContext).Book.Price + x) * count).ToString();
+        }
+
+        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+
+            Price.Content = "EGP: " + ((((BookViewModel)DataContext).Book.Price) * count).ToString();
         }
     }
 }

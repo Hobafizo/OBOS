@@ -16,9 +16,10 @@
                Visibility="Hidden">
             No results
         </Label>
-        
-        <Canvas Name="Canvas">
-            
-        </Canvas>
+        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+            <Canvas Name="Canvas">
+
+            </Canvas>
+        </ScrollViewer>
     </Grid>
 </UserControl>
