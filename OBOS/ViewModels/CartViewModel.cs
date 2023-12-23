@@ -15,12 +15,15 @@ namespace OBOS.ViewModels
     {
         public ICommand PlaceOrder { get; }
 
-        public List<CartItem> Cart;
+        public List<CartItem> Cart { get; set; }
+
+        public float Total { get; }
 
         public CartViewModel(NavigationStore navigationStore)
         {
-            PlaceOrder = new PlaceOrderCommand();
             Cart = ((Customer)Shop.GetInstance().CurrentUser).Cart;
+            Total = ((Customer)Shop.GetInstance().CurrentUser).CartTotal();
+            PlaceOrder = new PlaceOrderCommand(Cart, navigationStore);
         }
     }
 }

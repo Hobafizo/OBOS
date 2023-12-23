@@ -51,7 +51,8 @@
 
             </StackPanel>
 
-            <Button Grid.Column="2" Name="Remove" Click="Remove_Click">
+            <Button Grid.Column="2" Name="Remove" Click="Remove_Click"
+                    Cursor="Hand">
                 <Button.Resources>
                     <Style TargetType="Button">
                         <Setter Property="Template">

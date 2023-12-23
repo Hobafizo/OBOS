@@ -12,42 +12,64 @@
             BorderThickness="2"
             BorderBrush="#513408">
         <StackPanel Orientation="Vertical">
-            <Border Height="70" Width="70" Margin="0,5"
-                    CornerRadius="5"
-                    Background="AntiqueWhite">
-                <Image Source="../Media/Book.png"  Stretch="Uniform"
-                       Margin="5"/>
-            </Border>
+            
+            <Image Source="../Media/Book.png"  Stretch="Uniform"
+                       Margin="5" Height="70" Width="70"/>
 
             <TextBlock Text="{Binding Book.Name}"
-                       FontSize="20"
+                       FontSize="15"
                        Margin="0,0,0,5"
+                       FontWeight="Bold"
                        Foreground="#513408"
+                       Padding="0"
                        HorizontalAlignment="Center"/>
 
             <StackPanel Orientation="Vertical"
-                        Margin="10,7">
+                        Margin="10,0">
 
                 <CheckBox Content="Book of the year"
                           FontSize="10"
                           FontWeight="Bold"
                           Foreground="#513408"
-                          IsChecked="{Binding Special}"/>
+                          Unchecked="CheckBox_Unchecked"
+                          ContentStringFormat="Book of the year"
+                          Checked="CheckBox_Checked"
+                          IsChecked="{Binding Special}"
+                          Height="15"
+                          Padding="0"/>
 
                 <CheckBox Content="Bookmark"
                           FontSize="10"
                           FontWeight="Bold"
                           Foreground="#513408"
-                          IsChecked="{Binding Bookmark}"/>
+                          Checked="CheckBox_Checked"
+                          Unchecked="CheckBox_Unchecked"
+                          ContentStringFormat="Bookmark"
+                          IsChecked="{Binding Bookmark}"
+                          Height="15"
+                          Padding="0"/>
 
                 <CheckBox Content="Gift wrap"
                           FontSize="10"
                           FontWeight="Bold"
                           Foreground="#513408"
-                          IsChecked="{Binding Gift}"/>
+                          Unchecked="CheckBox_Unchecked"
+                          ContentStringFormat="Gift wrap"
+                          Checked="CheckBox_Checked"
+                          IsChecked="{Binding Gift}"
+                          Height="15"
+                          Padding="0"/>
 
             </StackPanel>
-            
+
+            <Label Name="Price"
+                   Foreground="#513408"
+                   FontSize="15"
+                   Content="11"
+                   Padding="0"
+                   Margin="0,2"
+                   HorizontalAlignment="Center"/>
+
             <StackPanel Orientation="Horizontal"
                         Margin="10,0"
                         HorizontalAlignment="Center">
@@ -67,12 +89,12 @@
                                                 Height="30"
                                                 Width="130">
 
-                                            <Label Name="text"
-                                               FontSize="15"
-                                               FontWeight="Bold"
-                                               Foreground="White"
-                                               HorizontalAlignment="Center"
-                                               Content="Add to cart"/>
+                                            <Label Name="Price"
+                                                   FontSize="15"
+                                                   FontWeight="Bold"
+                                                   Foreground="White"
+                                                   HorizontalAlignment="Center"
+                                                   Content="Add to cart"/>
 
                                         </Border>
 
@@ -157,13 +179,23 @@
                                                     Background="ForestGreen"
                                                     BorderBrush="ForestGreen"
                                                     BorderThickness="0"
-                                                    Width="25">
+                                                    Width="25"
+                                                    ClipToBounds="True">
 
                                                 <Label Content="-"
                                                        Padding="0"
                                                        FontSize="17"
                                                        HorizontalAlignment="Center"
-                                                       Foreground="White" Margin="0,-7,0,7"/>
+                                                       Foreground="White" Margin="0,0,0,-7" RenderTransformOrigin="0.5,0.5">
+                                                    <Label.RenderTransform>
+                                                        <TransformGroup>
+                                                            <ScaleTransform/>
+                                                            <SkewTransform/>
+                                                            <RotateTransform Angle="180"/>
+                                                            <TranslateTransform/>
+                                                        </TransformGroup>
+                                                    </Label.RenderTransform>
+                                                </Label>
                                             </Border>
 
 

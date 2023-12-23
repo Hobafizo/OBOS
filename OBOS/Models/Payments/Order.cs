@@ -33,12 +33,18 @@ namespace OBOS.Models.Payments
             }
         }
 
-        public List<CartItem> Items { get; set; }
+        public List<CartItem> Items { get;
+            set; }
         public DateTime Date { get; set; }
 
         public Order()
         {
             Items = new List<CartItem>();
+        }
+
+        public Order(List<CartItem> cart)
+        {
+            Items = cart;
         }
 
         public float TotalCost()

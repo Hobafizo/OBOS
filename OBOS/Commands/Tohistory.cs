@@ -19,7 +19,10 @@ namespace OBOS.Commands
 
         public override void Execute(object parameter)
         {
-            _navigationStore.CurrentViewModel = new HistoryViewModel(_navigationStore);
+            if (_navigationStore.CurrentViewModel is HistoryViewModel) { }
+
+            else
+                _navigationStore.CurrentViewModel = new HistoryViewModel(_navigationStore);
         }
     }
 }
