@@ -78,7 +78,6 @@ namespace OBOS.Commands
                 user = new Customer(User.IdCounter, username, pw, phone, address);
 
             Shop.GetInstance().Users.Add(user);
-            shop.CurrentUser = user;
             User.IdCounter++;
             return true;
         }

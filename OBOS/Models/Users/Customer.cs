@@ -35,7 +35,9 @@ namespace OBOS.Models.Users
 
         public Customer(int Id, string Username, string Password, string Phone, string Address) : base(Id, Username, Password, Address, Phone)
         {
-
+            Notifications = new Stack<Notification>();
+            Cart = new List<CartItem>();
+            OrderHistory = new List<Order>();
         }
 
         public int AddItem(Book book, int quantity)

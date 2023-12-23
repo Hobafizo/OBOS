@@ -10,17 +10,22 @@ namespace OBOS.Models.Users
 	public class Admin : User
 	{
 		// <<<< Attributes here >>>>
-		private Shop shop;
         public static Stack<Notification> Notifications = new Stack<Notification>();
 
         public Admin()
         {
-			shop = Shop.GetInstance();
+
+        }
+
+        public Admin(int Id, string Username, string Password, string Phone, string Address) : base(Id, Username, Password, Address, Phone)
+        {
 
         }
 
         public bool AddCategory(string name)
 		{
+            Shop shop = Shop.GetInstance();
+
             foreach (Category category2 in shop.Categories)
             {
                 if (category2.Name == name)
@@ -39,6 +44,8 @@ namespace OBOS.Models.Users
 
 		public bool DeleteCategory(string name)
 		{
+            Shop shop = Shop.GetInstance();
+
             foreach (Category category in shop.Categories)
             {
                 if (category.Name == name)
@@ -53,7 +60,9 @@ namespace OBOS.Models.Users
 
 		public bool AddBook(Book book)
 		{
-			if (shop.Books.Contains(book))
+            Shop shop = Shop.GetInstance();
+
+            if (shop.Books.Contains(book))
 			{
 				return false;
 			}
@@ -64,7 +73,9 @@ namespace OBOS.Models.Users
 
 		public bool UpdateBookStatus(Book book, BookStatus status)
 		{
-			foreach (var item in shop.Books)
+            Shop shop = Shop.GetInstance();
+
+            foreach (var item in shop.Books)
 			{
 				if (book == item)
 				{
@@ -74,11 +85,5 @@ namespace OBOS.Models.Users
 			}
 			return false;	
 		}
-
-		public Admin(int Id, string Username, string Password, string Phone, string Address) : base(Id, Username, Password, Address, Phone)
-		{
-
-		}
-
 	}
 }

@@ -11,7 +11,6 @@ namespace OBOS.Models.Store
 {
     public class Shop
     {
-		// <<<< Attributes here >>>>
 		private static Shop Instance { get; set; }
 
         public List<User> Users { get; set; }
@@ -19,8 +18,8 @@ namespace OBOS.Models.Store
         public List<Book> Books { get; set; }
 		public List<Order> Orders { get; set; }
 
+        [JsonIgnore]
         public User CurrentUser { get; set; }
-        // Books, Orders mlhom4 getter
 
         private Shop()
         {
@@ -92,9 +91,17 @@ namespace OBOS.Models.Store
             return Orders.FirstOrDefault(x => x.Id == id);
         }
 
+        private void UpdateMaxUserId()
+        {
+            if (Users.Count > 0)
+                User.IdCounter = Users.Max(x => x.Id) + 1;
+            Console.WriteLine("Max user id: {0}", User.IdCounter);
+        }
+
         public static void SetInstance(JsonSerializer serializer, JsonReader reader)
         {
             Instance = serializer.Deserialize<Shop>(reader);
+            Instance.UpdateMaxUserId();
         }
 
         public static Shop GetInstance()
