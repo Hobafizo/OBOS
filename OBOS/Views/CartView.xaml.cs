@@ -30,15 +30,20 @@ namespace OBOS.Views
         {
             if(DataContext != null)
             {
-                foreach(var item in ((dynamic)DataContext).Cart)
-                {
-                    Cart.Children.Add(new CartItemView(new CartItemViewModel(item)) { Margin = new Thickness(0, 0, 0, 10) });
-                }
 
-                if(((dynamic)DataContext).Cart.Count==0)
+                if (((dynamic)DataContext).Cart == null|| ((dynamic)DataContext).Cart.Count == 0)
                 {
                     Order.IsEnabled = false;
                 }
+                else
+                {
+                    foreach (var item in ((dynamic)DataContext).Cart)
+                    {
+                        Cart.Children.Add(new CartItemView(new CartItemViewModel(item)) { Margin = new Thickness(0, 0, 0, 10) });
+                    }
+                }
+
+                
             }
         }
     }
