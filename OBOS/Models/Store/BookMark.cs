@@ -4,23 +4,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace OBOS.Models.Store
 {
     public class BookMark : BookDecorator
     {
-        private Book BaseBook;
+        public Book BaseBook { get; set; }
 
         public BookMark(Book book)
         {
-            BaseBook = book;
-            Id = BaseBook.Id;
-            Name = BaseBook.Name;
-            Author = BaseBook.Author;
-            Stock = BaseBook.Stock;
-            Status = BaseBook.Status;
-            Categories = BaseBook.Categories;
+            Id = book.Id;
+            Name = book.Name;
+            Author = book.Author;
+            Price = book.Price;
+            Stock = book.Stock;
+            Status = book.Status;
+            Categories = book.Categories;
+            CategoryNames = book.CategoryNames;
 
+            BaseBook = book;
+        }
+
+        [JsonConstructor]
+        public BookMark(int id, string name, string author, float price, int stock, BookStatus status, List<string> categories, Book book)
+        {
+            Id = id;
+            Name = name;
+            Author = author;
+            Price = price;
+            Stock = stock;
+            Status = status;
+            CategoryNames = categories;
+
+            BaseBook = book;
         }
 
         public override float Cost()
@@ -44,6 +61,7 @@ namespace OBOS.Models.Store
             book.Stock = Stock;
             book.Status = Status;
             book.Categories = Categories;
+            book.CategoryNames = CategoryNames;
 
             return book;
         }

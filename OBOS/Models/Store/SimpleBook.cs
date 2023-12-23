@@ -34,6 +34,7 @@ namespace OBOS.Models.Store
             book.Stock = Stock;
             book.Status = Status;
             book.Categories = Categories;
+            book.CategoryNames = CategoryNames;
 
             return book;
         }

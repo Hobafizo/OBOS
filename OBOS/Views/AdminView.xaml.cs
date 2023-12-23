@@ -24,44 +24,6 @@ namespace OBOS.Views
         public AdminView()
         {
             InitializeComponent();
-
-            LeftCategory.Click += LeftCategory_Click;
-            RightCategory.Click += RightCategory_Click;
-            LeftBook.Click += LeftBook_Click;
-            RightBook.Click += RightBook_Click;
-
-            AddCategory.Click += AddCategory_Click;
-            DeleteCategory.Click += DeleteCategory_Click;
-        }
-
-        private void LeftCategory_Click(object sender, RoutedEventArgs e)
-        {
-            ((AdminViewModel)DataContext).IncreaseCategoryIndex(-1);
-        }
-
-        private void RightCategory_Click(object sender, RoutedEventArgs e)
-        {
-            ((AdminViewModel)DataContext).IncreaseCategoryIndex(1);
-        }
-
-        private void LeftBook_Click(object sender, RoutedEventArgs e)
-        {
-            ((AdminViewModel)DataContext).IncreaseBookIndex(-1);
-        }
-
-        private void RightBook_Click(object sender, RoutedEventArgs e)
-        {
-            ((AdminViewModel)DataContext).IncreaseBookIndex(1);
-        }
-
-        private void AddCategory_Click(object sender, RoutedEventArgs e)
-        {
-            ((AdminViewModel)DataContext).DeleteCategory();
-        }
-
-        private void DeleteCategory_Click(object sender, RoutedEventArgs e)
-        {
-            ((AdminViewModel)DataContext).DeleteCategory();
         }
     }
 }

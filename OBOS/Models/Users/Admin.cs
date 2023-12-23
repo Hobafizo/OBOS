@@ -62,24 +62,31 @@ namespace OBOS.Models.Users
 		{
             Shop shop = Shop.GetInstance();
 
-            if (shop.Books.Contains(book))
-			{
-				return false;
-			}
+            foreach (var item in shop.Books)
+            {
+                if (book.Name == item.Name)
+                {
+                    return false;
+                }
+            }
 			shop.Books.Add(book);
 			return true;
 
 		}
 
-		public bool UpdateBookStatus(Book book, BookStatus status)
+		public bool UpdateBookStatus(string name, BookStatus status)
 		{
             Shop shop = Shop.GetInstance();
 
             foreach (var item in shop.Books)
 			{
-				if (book == item)
+				if (name == item.Name)
 				{
-					book.Status = status;
+					item.Status = status;
+
+                    if (status == BookStatus.OutOfStock)
+                        item.Stock = 0;
+
 					return true;	
 				}
 			}
