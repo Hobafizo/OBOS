@@ -7,13 +7,19 @@ using System.Threading.Tasks;
 
 namespace OBOS.Models.Store
 {
-    public class BokkWrap : BookDecorator
+    public class BookWrap : BookDecorator
     {
         private Book BaseBook;
 
-        public BokkWrap(Book book)
+        public BookWrap(Book book)
         {
             BaseBook = book;
+            Id = BaseBook.Id;
+            Name = BaseBook.Name;
+            Author = BaseBook.Author;
+            Stock = BaseBook.Stock;
+            Status = BaseBook.Status;
+            Categories = BaseBook.Categories;
         }
 
         public override float Cost()
@@ -28,7 +34,7 @@ namespace OBOS.Models.Store
 
         public override Book Clone()
         {
-            Book book = new BokkWrap(BaseBook);
+            Book book = new BookWrap(BaseBook);
 
             book.Id = Id;
             book.Name = Name;

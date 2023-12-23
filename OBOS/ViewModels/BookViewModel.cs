@@ -49,7 +49,8 @@ namespace OBOS.ViewModels
             set { _gift = value; OnPropertyChanged(nameof(Gift)); }
         }
 
-        public int Count { get; set; }
+        public int Count { get; 
+            set; }
 
         public ICommand AddToCart { get; }
     }

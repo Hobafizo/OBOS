@@ -9,12 +9,12 @@ namespace OBOS.ViewModels
 {
     public class CartItemViewModel : ViewModelBase
     {
-        readonly CartItem cartItem;
+        public CartItem cartItem { get; }
 
         public CartItemViewModel(CartItem cartItem)
         {
             this.cartItem = cartItem;
-
+            
             Name = cartItem.Book.Name;
             Quantity = cartItem.Quantity;
             Total = cartItem.Total();

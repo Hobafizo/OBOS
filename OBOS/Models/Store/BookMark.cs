@@ -14,6 +14,13 @@ namespace OBOS.Models.Store
         public BookMark(Book book)
         {
             BaseBook = book;
+            Id = BaseBook.Id;
+            Name = BaseBook.Name;
+            Author = BaseBook.Author;
+            Stock = BaseBook.Stock;
+            Status = BaseBook.Status;
+            Categories = BaseBook.Categories;
+
         }
 
         public override float Cost()

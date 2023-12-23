@@ -32,13 +32,13 @@ namespace OBOS.Models.Store
         public int Quantity { get; set; }
 
         [JsonConstructor]
-        public CartItem(int bookid, int quantity = 0)
+        public CartItem(int bookid, int quantity = 1)
         {
             BookId = bookid;
             Quantity = quantity;
         }
 
-        public CartItem(Book book, int quantity = 0)
+        public CartItem(Book book, int quantity = 1)
         {
             Book = book;
             Quantity = quantity;

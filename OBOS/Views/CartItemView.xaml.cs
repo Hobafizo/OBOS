@@ -1,4 +1,5 @@
-﻿using OBOS.ViewModels;
+﻿using OBOS.Models.Store;
+using OBOS.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,23 @@ namespace OBOS.Views
     /// </summary>
     public partial class CartItemView : UserControl
     {
+        public CartItem Item {  get; set; }
+
         public CartItemView(CartItemViewModel viewModel)
         {
             InitializeComponent();
             DataContext = viewModel;
+            Name.Content = "Name: " + viewModel.Name;
+            Quantity.Content = "Quantity: " + viewModel.Quantity;
+            Price.Content = "EGP: " + viewModel.Total;
+            Item = viewModel.cartItem;
+
+        }
+
+        public event EventHandler<RoutedEventArgs> Clicked;
+        private void Remove_Click(object sender, RoutedEventArgs e)
+        {
+            Clicked?.Invoke(this, e);
         }
     }
 }

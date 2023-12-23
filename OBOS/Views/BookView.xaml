@@ -52,7 +52,8 @@
                         Margin="10,0"
                         HorizontalAlignment="Center">
                 <Button Command="{Binding AddToCart}"
-                        Click="Button_Click">
+                        Name ="Add"
+                        Click="Add_Click">
                     <Button.Resources>
                         <Style TargetType="Button">
                             <Setter Property="Template">

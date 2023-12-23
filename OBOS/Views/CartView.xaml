@@ -10,11 +10,11 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition Width="500"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
             <RowDefinition/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
         <Label FontSize="50"
@@ -22,19 +22,15 @@
                Content="Cart"
                HorizontalAlignment="Center"/>
 
-        <Label FontSize="45"
-               Grid.Column="1"
-               Foreground="#513408"
-               Content="Pending Orders"
-               HorizontalAlignment="Center"/>
-
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">
         <StackPanel Orientation="Vertical"
-                    Grid.Row="1"
+                    
                     Name="Cart"
                     Margin="20,5"
                     CanVerticallyScroll="True"/>
-
-        <Grid Grid.Row="1">
+        </ScrollViewer>
+        <Grid Grid.Row="2"
+              >
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="50"/>
@@ -91,15 +87,8 @@
                    HorizontalAlignment="Left"
                    Margin="20,0"/>
 
-
-
         </Grid>
 
-        <StackPanel Orientation="Vertical"
-                    Grid.Column="1"
-                    Grid.Row="1"
-                    Name="Pending"
-                    Margin="20,5"/>
-
+ 
     </Grid>
 </UserControl>

@@ -47,7 +47,7 @@ namespace OBOS
 		{
 			Settings.Load();
 
-			/*Shop shop = Shop.GetInstance();
+/*			Shop shop = Shop.GetInstance();
 
 			shop.Categories.Add(new Category
 			{
@@ -99,7 +99,7 @@ namespace OBOS
 
 			shop.Orders.Add(order);
 
-			Settings.Save();*/
-		}
+			Settings.Save();
+*/		}
 	}
 }

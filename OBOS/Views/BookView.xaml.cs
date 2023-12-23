@@ -47,16 +47,19 @@ namespace OBOS.Views
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            count = 1;
-            Count.Text = count.ToString();
-        }
 
         private void Count_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (DataContext != null)
                 ((dynamic)DataContext).Count = count;
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            ((dynamic)DataContext).Count = count;
+            
+            Count.Text = count.ToString();
+
         }
     }
 }
